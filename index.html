@@ -3,430 +3,242 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>2026 Korean Health Functional Food — Global Buyer Catalog</title>
+<title>2026 KHFF Supplier Showcase</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet"/>
 <style>
-/* ── TOKENS ───────────────────────────────────────────── */
 :root {
-  --ink:       #1A1A2E;
-  --ink-mid:   #4A4A6A;
-  --ink-soft:  #8888AA;
-  --bg:        #F7F8FC;
-  --surface:   #FFFFFF;
-  --border:    #E4E6F0;
-  --green:     #00A878;
-  --green-lt:  #E6F7F3;
-  --gold:      #C9963A;
-  --gold-lt:   #FDF4E7;
+  --ink:#1A1A2E; --ink-mid:#4A4A6A; --ink-soft:#8888AA;
+  --bg:#F7F8FC; --surface:#FFFFFF; --border:#E4E6F0;
+  --green:#00A878; --green-lt:#E6F7F3; --gold:#C9963A; --gold-lt:#FDF4E7;
+  --c-gut:#4A90D9; --c-beauty:#E8788A; --c-metabolic:#E6A817; --c-immunity:#27AE60;
+  --radius:12px;
+  --shadow:0 2px 16px rgba(26,26,46,.08);
+  --shadow-hover:0 8px 32px rgba(26,26,46,.14);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--ink)}
+a{text-decoration:none;color:inherit}
+button{cursor:pointer;border:none;background:none;font-family:inherit}
+img{max-width:100%;display:block}
+.container{max-width:1280px;margin:0 auto;padding:0 32px}
 
-  /* category palette */
-  --c-gut:     #4A90D9;
-  --c-immune:  #27AE60;
-  --c-beauty:  #E8788A;
-  --c-energy:  #E6A817;
-  --c-blood:   #E05C5C;
-  --c-womens:  #9B59B6;
-  --c-weight:  #16A085;
-  --c-bone:    #2980B9;
-  --c-anti:    #8E44AD;
-  --c-multi:   #7F8C8D;
+/* TOPBAR */
+#topbar{background:var(--ink);position:sticky;top:0;z-index:100;border-bottom:1px solid rgba(255,255,255,.08)}
+.topbar-inner{display:flex;align-items:center;gap:12px;height:60px;max-width:1280px;margin:0 auto;padding:0 32px}
+.topbar-brand{display:flex;align-items:center;gap:10px;flex-shrink:0;cursor:pointer}
+.brand-dot{width:8px;height:8px;border-radius:50%;background:var(--green)}
+.topbar-brand span{font-size:13px;font-weight:600;color:#fff;white-space:nowrap}
+.topbar-nav{display:flex;gap:4px;flex-shrink:0}
+.nav-btn{padding:6px 14px;border-radius:20px;font-size:13px;font-weight:500;color:rgba(255,255,255,.6);transition:all .2s}
+.nav-btn:hover,.nav-btn.active{background:rgba(255,255,255,.1);color:#fff}
+.topbar-spacer{flex:1}
+.search-wrap{display:flex;align-items:center;gap:8px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);border-radius:8px;padding:6px 12px;width:240px}
+.search-wrap svg{flex-shrink:0;opacity:.5}
+#searchInput{background:none;border:none;outline:none;color:#fff;font-size:13px;width:100%}
+#searchInput::placeholder{color:rgba(255,255,255,.35)}
+.lang-toggle{display:flex;align-items:center;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);border-radius:8px;overflow:hidden;flex-shrink:0}
+.lang-btn{padding:6px 12px;font-size:12px;font-weight:600;color:rgba(255,255,255,.45);transition:all .18s}
+.lang-btn.active{background:rgba(255,255,255,.15);color:#fff}
+.lang-divider{width:1px;height:16px;background:rgba(255,255,255,.15)}
+.vip-btn{display:flex;align-items:center;gap:6px;padding:8px 16px;border-radius:8px;background:var(--green);color:#fff;font-size:12px;font-weight:700;letter-spacing:.04em;transition:opacity .2s;flex-shrink:0;white-space:nowrap}
+.vip-btn:hover{opacity:.85}
 
-  --radius: 12px;
-  --shadow: 0 2px 16px rgba(26,26,46,.08);
-  --shadow-hover: 0 8px 32px rgba(26,26,46,.14);
-}
+/* HERO */
+#hero{background:var(--ink);padding:72px 32px 64px;text-align:center;position:relative;overflow:hidden}
+#hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 110%,rgba(0,168,120,.18) 0%,transparent 70%);pointer-events:none}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:8px;background:rgba(0,168,120,.15);border:1px solid rgba(0,168,120,.3);border-radius:20px;padding:5px 14px;font-size:11px;font-weight:600;color:var(--green);letter-spacing:.08em;text-transform:uppercase;margin-bottom:24px}
+#hero h1{font-family:'Playfair Display',serif;font-size:clamp(28px,4vw,48px);font-weight:700;color:#fff;line-height:1.2;margin-bottom:14px;max-width:720px;margin-left:auto;margin-right:auto}
+#hero h1 em{color:var(--green);font-style:normal}
+.hero-sub{font-size:13px;color:rgba(255,255,255,.5);margin-bottom:40px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.hero-stats{display:flex;justify-content:center;gap:40px;flex-wrap:wrap}
+.stat{text-align:center}
+.stat-num{font-size:32px;font-weight:700;color:#fff;font-family:'Playfair Display',serif}
+.stat-num span{color:var(--green)}
+.stat-label{font-size:11px;color:rgba(255,255,255,.4);letter-spacing:.06em;text-transform:uppercase;margin-top:2px}
 
-/* ── RESET ────────────────────────────────────────────── */
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--ink); }
-a { text-decoration: none; color: inherit; }
-button { cursor: pointer; border: none; background: none; font-family: inherit; }
-img { max-width: 100%; display: block; }
+/* HOME */
+#home{padding:56px 0}
+.mode-heading{text-align:center;margin-bottom:40px}
+.mode-heading h2{font-family:'Playfair Display',serif;font-size:26px;font-weight:600;color:var(--ink);margin-bottom:8px}
+.mode-heading p{font-size:14px;color:var(--ink-soft)}
+.mode-cards{display:grid;grid-template-columns:1fr 1fr 1fr;gap:24px;max-width:960px;margin:0 auto}
+.mode-card{background:var(--surface);border:2px solid var(--border);border-radius:16px;padding:40px 32px;text-align:center;cursor:pointer;transition:all .25s;position:relative;overflow:hidden}
+.mode-card:hover{border-color:var(--green);transform:translateY(-4px);box-shadow:var(--shadow-hover)}
+.mode-icon{width:56px;height:56px;border-radius:14px;display:flex;align-items:center;justify-content:center;margin:0 auto 16px;font-size:26px}
+.mode-card:nth-child(1) .mode-icon{background:var(--green-lt)}
+.mode-card:nth-child(2) .mode-icon{background:var(--gold-lt)}
+.mode-card:nth-child(3) .mode-icon{background:#EEF2FF}
+.mode-card h3{font-size:17px;font-weight:700;color:var(--ink);margin-bottom:8px}
+.mode-card p{font-size:13px;color:var(--ink-soft);line-height:1.6}
+.mode-arrow{margin-top:20px;font-size:13px;font-weight:600;color:var(--green)}
 
-/* ── LAYOUT ───────────────────────────────────────────── */
-.container { max-width: 1280px; margin: 0 auto; padding: 0 32px; }
+/* SECTION HEADER */
+.section-header{display:flex;align-items:center;gap:16px;padding:40px 0 28px}
+.back-btn{display:flex;align-items:center;gap:6px;font-size:13px;font-weight:500;color:var(--ink-soft);padding:7px 14px;border-radius:8px;border:1px solid var(--border);background:var(--surface);transition:all .2s;white-space:nowrap}
+.back-btn:hover{border-color:var(--green);color:var(--green)}
+.section-title{font-family:'Playfair Display',serif;font-size:22px;font-weight:600}
+.section-count{margin-left:auto;font-size:12px;color:var(--ink-soft);background:var(--surface);border:1px solid var(--border);padding:5px 12px;border-radius:20px}
 
-/* ── TOPBAR ───────────────────────────────────────────── */
-#topbar {
-  background: var(--ink);
-  position: sticky; top: 0; z-index: 100;
-  border-bottom: 1px solid rgba(255,255,255,.08);
-}
-.topbar-inner {
-  display: flex; align-items: center; gap: 16px;
-  height: 60px; max-width: 1280px; margin: 0 auto; padding: 0 32px;
-}
-.topbar-brand {
-  display: flex; align-items: center; gap: 10px; flex-shrink: 0; cursor: pointer;
-}
-.topbar-brand .brand-dot {
-  width: 8px; height: 8px; border-radius: 50%;
-  background: var(--green); flex-shrink: 0;
-}
-.topbar-brand span {
-  font-size: 13px; font-weight: 600; color: #fff; letter-spacing: .02em;
-  white-space: nowrap;
-}
-.topbar-nav {
-  display: flex; gap: 4px; margin-left: 24px; flex-shrink: 0;
-}
-.nav-btn {
-  padding: 6px 14px; border-radius: 20px; font-size: 13px; font-weight: 500;
-  color: rgba(255,255,255,.6); transition: all .2s;
-}
-.nav-btn:hover, .nav-btn.active { background: rgba(255,255,255,.1); color: #fff; }
-.topbar-spacer { flex: 1; }
-.search-wrap {
-  display: flex; align-items: center; gap: 8px;
-  background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.12);
-  border-radius: 8px; padding: 6px 12px; width: 260px;
-}
-.search-wrap svg { flex-shrink: 0; opacity: .5; }
-#searchInput {
-  background: none; border: none; outline: none; color: #fff;
-  font-size: 13px; width: 100%;
-}
-#searchInput::placeholder { color: rgba(255,255,255,.35); }
-#catFilter {
-  background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.12);
-  border-radius: 8px; padding: 6px 10px; color: rgba(255,255,255,.8);
-  font-size: 12px; outline: none; cursor: pointer;
-}
-#catFilter option { background: var(--ink); color: #fff; }
-.pdf-btn {
-  display: flex; align-items: center; gap: 6px;
-  padding: 7px 16px; border-radius: 8px;
-  background: var(--green); color: #fff;
-  font-size: 12px; font-weight: 600; letter-spacing: .03em;
-  transition: opacity .2s; flex-shrink: 0;
-}
-.pdf-btn:hover { opacity: .85; }
+/* COMPANY GRID */
+#companyView,#productTypeView,#companyDetail,#searchResults,#aboutView{display:none}
+.company-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:16px;padding-bottom:60px}
+.company-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:24px 16px;text-align:center;cursor:pointer;transition:all .22s}
+.company-card:hover{border-color:var(--green);transform:translateY(-3px);box-shadow:var(--shadow-hover)}
+.company-logo{width:72px;height:72px;border-radius:12px;background:var(--bg);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;margin:0 auto 12px;overflow:hidden;font-size:11px;color:var(--ink-soft);font-weight:600;text-align:center;padding:4px}
+.company-logo img{width:100%;height:100%;object-fit:contain}
+.company-name-en{font-size:13px;font-weight:700;color:var(--ink);margin-bottom:4px}
+.company-name-kr{font-size:11px;color:var(--ink-soft);margin-bottom:10px}
+.company-tags{display:flex;flex-wrap:wrap;gap:4px;justify-content:center}
+.cat-tag{font-size:10px;font-weight:600;padding:2px 8px;border-radius:10px;color:#fff}
 
-/* ── LANG TOGGLE ──────────────────────────────────────── */
-.lang-toggle {
-  display: flex; align-items: center;
-  background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.15);
-  border-radius: 8px; overflow: hidden; flex-shrink: 0;
-}
-.lang-btn {
-  padding: 6px 13px; font-size: 12px; font-weight: 600;
-  color: rgba(255,255,255,.45); letter-spacing: .03em;
-  transition: all .18s; border-radius: 0;
-}
-.lang-btn.active {
-  background: rgba(255,255,255,.15); color: #fff;
-}
-.lang-divider {
-  width: 1px; height: 16px; background: rgba(255,255,255,.15); flex-shrink: 0;
-}
+/* PRODUCT TYPE VIEW */
+.pt-tabs{display:flex;gap:0;margin-bottom:28px;border:1px solid var(--border);border-radius:10px;overflow:hidden;width:fit-content}
+.pt-tab{padding:10px 28px;font-size:13px;font-weight:600;color:var(--ink-soft);cursor:pointer;transition:all .2s;background:var(--surface)}
+.pt-tab.active{background:var(--ink);color:#fff}
+.pt-cat-section{margin-bottom:36px}
+.pt-cat-header{display:flex;align-items:center;gap:10px;margin-bottom:16px;padding-bottom:10px;border-bottom:1px solid var(--border)}
+.pt-cat-icon{width:36px;height:36px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0}
+.pt-cat-title{font-size:16px;font-weight:700;color:var(--ink)}
+.pt-cat-count{font-size:12px;color:var(--ink-soft);margin-left:auto}
 
-/* ── HERO ─────────────────────────────────────────────── */
-#hero {
-  background: var(--ink);
-  padding: 72px 32px 64px;
-  text-align: center;
-  position: relative; overflow: hidden;
-}
-#hero::before {
-  content: '';
-  position: absolute; inset: 0;
-  background: radial-gradient(ellipse 80% 60% at 50% 110%, rgba(0,168,120,.18) 0%, transparent 70%);
-  pointer-events: none;
-}
-.hero-eyebrow {
-  display: inline-flex; align-items: center; gap: 8px;
-  background: rgba(0,168,120,.15); border: 1px solid rgba(0,168,120,.3);
-  border-radius: 20px; padding: 5px 14px;
-  font-size: 11px; font-weight: 600; color: var(--green);
-  letter-spacing: .08em; text-transform: uppercase; margin-bottom: 24px;
-}
-#hero h1 {
-  font-family: 'Playfair Display', serif;
-  font-size: clamp(28px, 4vw, 48px);
-  font-weight: 700; color: #fff;
-  line-height: 1.2; margin-bottom: 14px;
-  max-width: 720px; margin-left: auto; margin-right: auto;
-}
-#hero h1 em { color: var(--green); font-style: normal; }
-.hero-sub {
-  font-size: 13px; color: rgba(255,255,255,.5);
-  margin-bottom: 40px; letter-spacing: .01em;
-  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
-}
-.hero-stats {
-  display: flex; justify-content: center; gap: 40px; flex-wrap: wrap;
-}
-.stat { text-align: center; }
-.stat-num {
-  font-size: 32px; font-weight: 700; color: #fff;
-  font-family: 'Playfair Display', serif;
-}
-.stat-num span { color: var(--green); }
-.stat-label { font-size: 11px; color: rgba(255,255,255,.4); letter-spacing: .06em; text-transform: uppercase; margin-top: 2px; }
+/* PRODUCT GRID */
+.product-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:20px;padding-bottom:40px}
+.product-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;transition:all .22s;cursor:pointer}
+.product-card:hover{transform:translateY(-3px);box-shadow:var(--shadow-hover)}
+.product-img{width:100%;aspect-ratio:4/3;background:var(--bg);position:relative;display:flex;align-items:center;justify-content:center;overflow:hidden;border-bottom:1px solid var(--border)}
+.product-img img{width:100%;height:100%;object-fit:cover}
+.product-img .img-placeholder{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;color:var(--ink-soft);font-size:12px;text-align:center;padding:16px;width:100%;height:100%}
+.product-img .img-placeholder svg{opacity:.3}
+.product-type-badge{position:absolute;top:10px;right:10px;font-size:10px;font-weight:700;letter-spacing:.04em;padding:3px 9px;border-radius:10px}
+.badge-finished{background:var(--green-lt);color:var(--green)}
+.badge-ingredient{background:var(--gold-lt);color:var(--gold)}
+.product-body{padding:16px}
+.product-cat-tag{display:inline-flex;align-items:center;gap:4px;font-size:10px;font-weight:600;padding:3px 9px;border-radius:10px;margin-bottom:8px;color:#fff}
+.product-name{font-size:14px;font-weight:700;color:var(--ink);margin-bottom:4px;line-height:1.4}
+.product-company{font-size:12px;color:var(--ink-soft)}
 
-/* ── HOME MODES ───────────────────────────────────────── */
-#home { padding: 56px 0; }
-.mode-heading {
-  text-align: center; margin-bottom: 40px;
-}
-.mode-heading h2 {
-  font-family: 'Playfair Display', serif;
-  font-size: 26px; font-weight: 600; color: var(--ink); margin-bottom: 8px;
-}
-.mode-heading p { font-size: 14px; color: var(--ink-soft); }
+/* COMPANY DETAIL */
+.company-detail-header{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:32px;display:flex;align-items:center;gap:24px;margin-bottom:28px}
+.company-detail-logo{width:96px;height:96px;border-radius:16px;background:var(--bg);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:13px;color:var(--ink-soft);font-weight:700;flex-shrink:0;overflow:hidden;text-align:center;padding:6px}
+.company-detail-logo img{width:100%;height:100%;object-fit:contain}
+.company-detail-info h2{font-family:'Playfair Display',serif;font-size:24px;font-weight:700;margin-bottom:4px}
+.company-detail-info .kr-name{font-size:14px;color:var(--ink-soft);margin-bottom:12px}
+.company-detail-info .detail-cats{display:flex;flex-wrap:wrap;gap:6px}
 
-.mode-cards {
-  display: grid; grid-template-columns: 1fr 1fr; gap: 24px; max-width: 720px; margin: 0 auto;
-}
-.mode-card {
-  background: var(--surface); border: 2px solid var(--border);
-  border-radius: 16px; padding: 40px 32px;
-  text-align: center; cursor: pointer;
-  transition: all .25s; position: relative; overflow: hidden;
-}
-.mode-card::before {
-  content: ''; position: absolute; inset: 0;
-  background: linear-gradient(135deg, transparent 60%, rgba(0,168,120,.04));
-  pointer-events: none;
-}
-.mode-card:hover {
-  border-color: var(--green); transform: translateY(-4px);
-  box-shadow: var(--shadow-hover);
-}
-.mode-icon {
-  width: 56px; height: 56px; border-radius: 14px;
-  display: flex; align-items: center; justify-content: center;
-  margin: 0 auto 16px; font-size: 26px;
-}
-.mode-card:first-child .mode-icon { background: var(--green-lt); }
-.mode-card:last-child  .mode-icon { background: var(--gold-lt); }
-.mode-card h3 { font-size: 17px; font-weight: 700; color: var(--ink); margin-bottom: 8px; }
-.mode-card p  { font-size: 13px; color: var(--ink-soft); line-height: 1.6; }
-.mode-arrow {
-  margin-top: 20px; font-size: 13px; font-weight: 600;
-  color: var(--green); letter-spacing: .02em;
-}
+/* ABOUT PAGE */
+#aboutView{padding-bottom:60px}
+.about-hero{background:var(--ink);border-radius:16px;padding:40px 36px;margin-bottom:28px;position:relative;overflow:hidden}
+.about-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 120%,rgba(0,168,120,.15) 0%,transparent 70%);pointer-events:none}
+.about-eyebrow{display:inline-flex;align-items:center;gap:6px;background:rgba(0,168,120,.15);border:0.5px solid rgba(0,168,120,.3);border-radius:20px;padding:4px 12px;font-size:10px;font-weight:600;color:var(--green);letter-spacing:.06em;margin-bottom:16px}
+.about-hero h2{font-family:'Playfair Display',serif;font-size:28px;font-weight:700;color:#fff;line-height:1.3;margin-bottom:12px}
+.about-hero h2 em{color:var(--green);font-style:normal}
+.about-hero-sub{font-size:13px;color:rgba(255,255,255,.5);line-height:1.75;max-width:540px;margin-bottom:28px}
+.about-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.about-stat{background:rgba(255,255,255,.06);border:0.5px solid rgba(255,255,255,.1);border-radius:10px;padding:16px 12px;text-align:center}
+.about-stat-num{font-size:20px;font-weight:700;color:var(--green)}
+.about-stat-label{font-size:10px;color:rgba(255,255,255,.4);margin-top:4px;line-height:1.4}
+.about-section{margin-bottom:32px}
+.about-section-title{font-size:16px;font-weight:700;color:var(--ink);margin-bottom:16px;display:flex;align-items:center;gap:8px;padding-bottom:10px;border-bottom:1px solid var(--border)}
+.about-cards{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.about-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:20px}
+.about-card-icon{width:40px;height:40px;border-radius:10px;display:flex;align-items:center;justify-content:center;margin-bottom:12px;font-size:20px}
+.about-card h4{font-size:14px;font-weight:700;color:var(--ink);margin-bottom:8px}
+.about-card p{font-size:13px;color:var(--ink-soft);line-height:1.65}
+.about-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:28px}
+.about-step{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:16px;text-align:center}
+.about-step-num{width:32px;height:32px;border-radius:50%;background:var(--ink);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:var(--green);margin:0 auto 10px}
+.about-step h4{font-size:12px;font-weight:700;color:var(--ink);margin-bottom:6px}
+.about-step p{font-size:11px;color:var(--ink-soft);line-height:1.5}
+.about-event-info{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:24px;display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:28px}
+.about-info-item label{font-size:10px;font-weight:600;color:var(--ink-soft);letter-spacing:.06em;text-transform:uppercase;display:block;margin-bottom:4px}
+.about-info-item span{font-size:13px;color:var(--ink)}
+.about-cta{background:var(--ink);border-radius:var(--radius);padding:24px 28px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.about-cta h4{font-size:15px;font-weight:700;color:#fff;margin-bottom:4px}
+.about-cta p{font-size:12px;color:rgba(255,255,255,.45)}
+.about-cta-btn{display:flex;align-items:center;gap:8px;padding:11px 22px;border-radius:10px;background:var(--green);color:#fff;font-size:13px;font-weight:700;white-space:nowrap;cursor:pointer}
 
-/* ── SECTION HEADER ───────────────────────────────────── */
-.section-header {
-  display: flex; align-items: center; gap: 16px;
-  padding: 40px 0 28px;
-}
-.back-btn {
-  display: flex; align-items: center; gap: 6px;
-  font-size: 13px; font-weight: 500; color: var(--ink-soft);
-  padding: 7px 14px; border-radius: 8px;
-  border: 1px solid var(--border); background: var(--surface);
-  transition: all .2s; white-space: nowrap;
-}
-.back-btn:hover { border-color: var(--green); color: var(--green); }
-.section-title { font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 600; }
-.section-count {
-  margin-left: auto; font-size: 12px; color: var(--ink-soft);
-  background: var(--surface); border: 1px solid var(--border);
-  padding: 5px 12px; border-radius: 20px;
-}
+/* VIP MODAL */
+.modal-overlay{display:none;position:fixed;inset:0;background:rgba(15,20,40,.6);z-index:999;align-items:center;justify-content:center;padding:20px}
+.modal-overlay.open{display:flex}
+.modal-box{background:var(--surface);border-radius:16px;width:100%;max-width:620px;max-height:90vh;overflow-y:auto;box-shadow:0 24px 64px rgba(0,0,0,.3)}
+.modal-header{background:var(--ink);padding:24px 28px;border-radius:16px 16px 0 0;position:sticky;top:0;z-index:10}
+.modal-badge{display:inline-flex;align-items:center;gap:5px;background:rgba(0,168,120,.15);border:0.5px solid rgba(0,168,120,.3);border-radius:20px;padding:3px 10px;font-size:10px;font-weight:600;color:var(--green);margin-bottom:10px}
+.modal-title{font-size:18px;font-weight:700;color:#fff;margin-bottom:4px}
+.modal-sub{font-size:11px;color:rgba(255,255,255,.4);line-height:1.5}
+.modal-close-btn{position:absolute;top:16px;right:20px;color:rgba(255,255,255,.5);font-size:22px;cursor:pointer;line-height:1}
+.modal-body{padding:0}
+.fm-sec{padding:22px 28px;border-bottom:1px solid var(--border)}
+.fm-sec:last-child{border-bottom:none}
+.fm-sec-header{display:flex;align-items:center;gap:10px;margin-bottom:4px}
+.fm-sec-num{width:24px;height:24px;border-radius:50%;background:var(--ink);display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;color:var(--green);flex-shrink:0}
+.fm-sec-name{font-size:14px;font-weight:700;color:var(--ink)}
+.fm-sec-desc{font-size:11px;color:var(--ink-soft);margin-bottom:16px;padding-left:34px;line-height:1.5}
+.fm-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.fm-field{display:flex;flex-direction:column;gap:5px;margin-bottom:12px}
+.fm-field:last-child{margin-bottom:0}
+.fm-label{font-size:11px;font-weight:600;color:var(--ink-soft);letter-spacing:.03em}
+.fm-label .req{color:#E05C5C;margin-left:2px}
+.fm-hint{font-size:10px;color:var(--ink-soft);margin-top:2px}
+.fm-input{width:100%;padding:9px 12px;border:1px solid var(--border);border-radius:8px;font-size:13px;font-family:'Inter',sans-serif;background:var(--surface);color:var(--ink);outline:none;transition:border-color .2s}
+.fm-input:focus{border-color:var(--green)}
+.fm-check-item{display:flex;align-items:flex-start;gap:10px;padding:10px 12px;border:1px solid var(--border);border-radius:8px;margin-bottom:6px;cursor:pointer;transition:border-color .2s}
+.fm-check-item:hover{border-color:var(--green)}
+.fm-check-item input[type=checkbox],.fm-check-item input[type=radio]{margin-top:2px;flex-shrink:0;accent-color:var(--green)}
+.fm-check-item span{font-size:12px;color:var(--ink);line-height:1.5}
+.fm-check-item small{font-size:10px;color:var(--ink-soft);display:block;margin-top:2px}
+.fm-tab-row{display:flex;gap:0;margin-bottom:14px;border:1px solid var(--border);border-radius:8px;overflow:hidden}
+.fm-tab{flex:1;padding:8px;font-size:12px;font-weight:600;text-align:center;cursor:pointer;background:var(--bg);color:var(--ink-soft);transition:all .2s}
+.fm-tab.active{background:var(--ink);color:#fff}
+.cat-check-card{display:flex;align-items:flex-start;gap:10px;padding:12px 14px;border:1px solid var(--border);border-radius:8px;margin-bottom:8px;cursor:pointer;transition:all .2s}
+.cat-check-card:hover{border-color:var(--green)}
+.cat-check-card .cat-ico{width:32px;height:32px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0}
+.cat-check-card .cat-info .cat-nm{font-size:13px;font-weight:600;color:var(--ink)}
+.cat-check-card .cat-info .cat-eg{font-size:11px;color:var(--ink-soft);margin-top:2px}
+.next-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.next-item{display:flex;align-items:flex-start;gap:8px;padding:10px 12px;border:1px solid var(--border);border-radius:8px;cursor:pointer;transition:border-color .2s}
+.next-item:hover{border-color:var(--green)}
+.next-item span{font-size:11px;color:var(--ink);line-height:1.4}
+.modal-footer{padding:16px 28px;background:var(--bg);border-top:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;border-radius:0 0 16px 16px;position:sticky;bottom:0}
+.modal-privacy{font-size:11px;color:var(--ink-soft)}
+.modal-submit-btn{display:flex;align-items:center;gap:8px;padding:10px 24px;border-radius:10px;background:var(--ink);color:#fff;font-size:13px;font-weight:700;cursor:pointer;transition:opacity .2s}
+.modal-submit-btn:hover{opacity:.85}
+.modal-cancel-btn{padding:9px 18px;border-radius:8px;border:1px solid var(--border);font-size:13px;color:var(--ink-soft);cursor:pointer;background:var(--surface)}
 
-/* ── COMPANY GRID ─────────────────────────────────────── */
-#companyView, #categoryView, #companyDetail, #searchResults { display: none; }
+/* FOOTER */
+footer{background:#0D1B2A;border-top:1px solid rgba(255,255,255,.06);margin-top:40px}
+.footer-inner{max-width:1280px;margin:0 auto;padding:36px 32px;display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap}
+.footer-left{display:flex;align-items:center;gap:18px}
+.footer-logo{height:56px;width:auto;object-fit:contain;flex-shrink:0}
+.footer-divider{width:1px;height:44px;background:rgba(255,255,255,.1);flex-shrink:0}
+.footer-org-label{font-size:10px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:4px}
+.footer-org-name{font-size:13px;font-weight:600;color:rgba(255,255,255,.85);line-height:1.4}
+.footer-org-kr{font-size:11px;color:rgba(255,255,255,.3);margin-top:2px}
+.footer-right{text-align:right}
+.footer-impl-label{font-size:10px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:4px}
+.footer-impl-name{font-size:13px;font-weight:600;color:#2DC89A}
+.footer-impl-kr{font-size:11px;color:rgba(255,255,255,.25);margin-top:2px}
+.footer-copy{max-width:1280px;margin:0 auto;padding:12px 32px;border-top:1px solid rgba(255,255,255,.05);text-align:center;font-size:11px;color:rgba(255,255,255,.15)}
+.no-results{text-align:center;padding:80px 20px;color:var(--ink-soft);font-size:15px}
 
-.company-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  gap: 16px; padding-bottom: 60px;
-}
-.company-card {
-  background: var(--surface); border: 1px solid var(--border);
-  border-radius: var(--radius); padding: 24px 16px;
-  text-align: center; cursor: pointer;
-  transition: all .22s;
-}
-.company-card:hover {
-  border-color: var(--green); transform: translateY(-3px);
-  box-shadow: var(--shadow-hover);
-}
-.company-logo {
-  width: 72px; height: 72px; border-radius: 12px;
-  background: var(--bg); border: 1px solid var(--border);
-  display: flex; align-items: center; justify-content: center;
-  margin: 0 auto 12px; overflow: hidden; font-size: 11px;
-  color: var(--ink-soft); font-weight: 600; letter-spacing: .02em;
-  text-align: center; line-height: 1.3; padding: 4px;
-}
-.company-logo img { width: 100%; height: 100%; object-fit: contain; }
-.company-name-en { font-size: 13px; font-weight: 700; color: var(--ink); margin-bottom: 4px; }
-.company-name-kr { font-size: 11px; color: var(--ink-soft); margin-bottom: 10px; }
-.company-tags { display: flex; flex-wrap: wrap; gap: 4px; justify-content: center; }
-.cat-tag {
-  font-size: 10px; font-weight: 600; padding: 2px 8px; border-radius: 10px;
-  color: #fff; letter-spacing: .02em;
-}
+/* TOAST */
+.toast{position:fixed;bottom:32px;left:50%;transform:translateX(-50%) translateY(20px);background:var(--ink);color:#fff;padding:12px 24px;border-radius:30px;font-size:13px;font-weight:500;opacity:0;transition:all .3s;z-index:9999;pointer-events:none}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
 
-/* ── CATEGORY GRID ────────────────────────────────────── */
-.category-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-  gap: 16px; padding-bottom: 60px;
-}
-.category-card {
-  background: var(--surface); border: 1px solid var(--border);
-  border-radius: var(--radius); padding: 28px 24px;
-  cursor: pointer; transition: all .22s;
-  display: flex; align-items: center; gap: 16px;
-}
-.category-card:hover {
-  transform: translateY(-3px); box-shadow: var(--shadow-hover);
-  border-color: var(--border);
-}
-.cat-icon-wrap {
-  width: 48px; height: 48px; border-radius: 12px;
-  display: flex; align-items: center; justify-content: center;
-  font-size: 22px; flex-shrink: 0;
-}
-.cat-card-info h3 { font-size: 14px; font-weight: 700; color: var(--ink); margin-bottom: 4px; }
-.cat-card-info p  { font-size: 12px; color: var(--ink-soft); }
-
-/* ── PRODUCT GRID ─────────────────────────────────────── */
-.product-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-  gap: 20px; padding-bottom: 60px;
-}
-.product-card {
-  background: var(--surface); border: 1px solid var(--border);
-  border-radius: var(--radius); overflow: hidden;
-  transition: all .22s; cursor: default;
-}
-.product-card:hover {
-  transform: translateY(-3px); box-shadow: var(--shadow-hover);
-}
-.product-img {
-  width: 100%; aspect-ratio: 4/3;
-  background: var(--bg); position: relative;
-  display: flex; align-items: center; justify-content: center;
-  overflow: hidden; border-bottom: 1px solid var(--border);
-}
-.product-img img {
-  width: 100%; height: 100%; object-fit: cover;
-}
-.product-img .img-placeholder {
-  display: flex; flex-direction: column; align-items: center; justify-content: center;
-  gap: 8px; color: var(--ink-soft); font-size: 12px;
-  text-align: center; padding: 16px;
-  width: 100%; height: 100%;
-}
-.product-img .img-placeholder svg { opacity: .3; }
-.product-type-badge {
-  position: absolute; top: 10px; right: 10px;
-  font-size: 10px; font-weight: 700; letter-spacing: .04em;
-  padding: 3px 9px; border-radius: 10px;
-}
-.badge-finished { background: var(--green-lt); color: var(--green); }
-.badge-ingredient { background: var(--gold-lt); color: var(--gold); }
-.product-body { padding: 16px; }
-.product-cat-tag {
-  display: inline-flex; align-items: center; gap: 4px;
-  font-size: 10px; font-weight: 600;
-  padding: 3px 9px; border-radius: 10px; margin-bottom: 8px;
-  color: #fff;
-}
-.product-name { font-size: 14px; font-weight: 700; color: var(--ink); margin-bottom: 4px; line-height: 1.4; }
-.product-company { font-size: 12px; color: var(--ink-soft); margin-bottom: 10px; }
-.product-market {
-  font-size: 11px; color: var(--ink-mid);
-  background: var(--bg); border-radius: 6px; padding: 6px 8px;
-  line-height: 1.5;
-}
-.product-market strong { color: var(--ink); font-weight: 600; }
-
-/* ── COMPANY DETAIL ───────────────────────────────────── */
-.company-detail-header {
-  background: var(--surface); border: 1px solid var(--border);
-  border-radius: 16px; padding: 32px;
-  display: flex; align-items: center; gap: 24px;
-  margin-bottom: 28px;
-}
-.company-detail-logo {
-  width: 96px; height: 96px; border-radius: 16px;
-  background: var(--bg); border: 1px solid var(--border);
-  display: flex; align-items: center; justify-content: center;
-  font-size: 13px; color: var(--ink-soft); font-weight: 700;
-  flex-shrink: 0; overflow: hidden; text-align: center; padding: 6px;
-}
-.company-detail-logo img { width: 100%; height: 100%; object-fit: contain; }
-.company-detail-info h2 {
-  font-family: 'Playfair Display', serif;
-  font-size: 24px; font-weight: 700; margin-bottom: 4px;
-}
-.company-detail-info .kr-name { font-size: 14px; color: var(--ink-soft); margin-bottom: 12px; }
-.company-detail-info .detail-cats { display: flex; flex-wrap: wrap; gap: 6px; }
-
-/* ── FOOTER ───────────────────────────────────────────── */
-footer {
-  background: #0D1B2A;
-  border-top: 1px solid rgba(255,255,255,.06);
-  margin-top: 40px;
-}
-.footer-inner {
-  max-width: 1280px; margin: 0 auto; padding: 36px 32px;
-  display: flex; align-items: center; justify-content: space-between;
-  gap: 24px; flex-wrap: wrap;
-}
-.footer-left { display: flex; align-items: center; gap: 18px; }
-.footer-logo { height: 56px; width: auto; object-fit: contain; flex-shrink: 0; }
-.footer-divider { width: 1px; height: 44px; background: rgba(255,255,255,.1); flex-shrink: 0; }
-.footer-org-label {
-  font-size: 10px; font-weight: 600; letter-spacing: .08em;
-  text-transform: uppercase; color: rgba(255,255,255,.3); margin-bottom: 4px;
-}
-.footer-org-name { font-size: 13px; font-weight: 600; color: rgba(255,255,255,.85); line-height: 1.4; }
-.footer-org-kr { font-size: 11px; color: rgba(255,255,255,.3); margin-top: 2px; }
-.footer-right { text-align: right; }
-.footer-impl-label {
-  font-size: 10px; font-weight: 600; letter-spacing: .08em;
-  text-transform: uppercase; color: rgba(255,255,255,.3); margin-bottom: 4px;
-}
-.footer-impl-name { font-size: 13px; font-weight: 600; color: #2DC89A; }
-.footer-impl-kr { font-size: 11px; color: rgba(255,255,255,.25); margin-top: 2px; }
-.footer-copy {
-  max-width: 1280px; margin: 0 auto; padding: 12px 32px;
-  border-top: 1px solid rgba(255,255,255,.05);
-  text-align: center; font-size: 11px; color: rgba(255,255,255,.15);
-}
-@media (max-width: 640px) {
-  .footer-inner { flex-direction: column; align-items: flex-start; }
-  .footer-right { text-align: left; }
-}
-
-/* ── SEARCH RESULTS ───────────────────────────────────── */
-.no-results {
-  text-align: center; padding: 80px 20px;
-  color: var(--ink-soft); font-size: 15px;
-}
-
-/* ── PRINT ────────────────────────────────────────────── */
-@media print {
-  #topbar, .back-btn, .pdf-btn, #hero .hero-stats,
-  .mode-cards { display: none !important; }
-  body { background: #fff; }
-  .product-card { break-inside: avoid; }
-  .container { max-width: 100%; padding: 0 16px; }
-  footer { background: none; }
-  footer .footer-logos, footer p { color: #999; }
-}
-
-/* ── RESPONSIVE ───────────────────────────────────────── */
-@media (max-width: 640px) {
-  .topbar-inner { padding: 0 16px; gap: 8px; }
-  .topbar-nav { display: none; }
-  .search-wrap { width: 160px; }
-  #catFilter { display: none; }
-  .container { padding: 0 16px; }
-  .mode-cards { grid-template-columns: 1fr; }
-  #hero { padding: 48px 16px 40px; }
-  .hero-stats { gap: 24px; }
-  .company-detail-header { flex-direction: column; text-align: center; }
+@media(max-width:640px){
+  .topbar-inner{padding:0 16px;gap:8px}
+  .topbar-nav{display:none}
+  .search-wrap{width:140px}
+  .container{padding:0 16px}
+  .mode-cards{grid-template-columns:1fr}
+  #hero{padding:48px 16px 40px}
+  .hero-sub{white-space:normal}
+  .about-cards,.about-steps,.about-stats{grid-template-columns:1fr 1fr}
+  .about-event-info{grid-template-columns:1fr}
+  .fm-grid{grid-template-columns:1fr}
+  .next-grid{grid-template-columns:1fr}
+  .footer-inner{flex-direction:column;align-items:flex-start}
+  .footer-right{text-align:left}
 }
 </style>
 </head>
@@ -437,38 +249,27 @@ footer {
   <div class="topbar-inner">
     <div class="topbar-brand" onclick="showHome()">
       <div class="brand-dot"></div>
-      <span>K-Health Catalog 2026</span>
+      <span>2026 KHFF Supplier Showcase</span>
     </div>
     <nav class="topbar-nav">
-      <button class="nav-btn active" id="navHome"     onclick="showHome()"        data-en="Home"        data-kr="홈">Home</button>
-      <button class="nav-btn"        id="navCompany"  onclick="showCompanyView()" data-en="By Company"  data-kr="기업별">By Company</button>
-      <button class="nav-btn"        id="navCategory" onclick="showCategoryView()"data-en="By Category" data-kr="카테고리별">By Category</button>
+      <button class="nav-btn active" id="navHome" onclick="showHome()" data-en="Home" data-kr="홈">Home</button>
+      <button class="nav-btn" id="navAbout" onclick="showAbout()" data-en="About" data-kr="사업개요">About</button>
+      <button class="nav-btn" id="navCompany" onclick="showCompanyView()" data-en="By Company" data-kr="기업별">By Company</button>
+      <button class="nav-btn" id="navProductType" onclick="showProductTypeView()" data-en="By Product Type" data-kr="제품 유형별">By Product Type</button>
     </nav>
     <div class="topbar-spacer"></div>
     <div class="search-wrap">
       <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
       <input type="text" id="searchInput" placeholder="Search products or companies…" oninput="onSearch(this.value)"/>
     </div>
-    <select id="catFilter" onchange="onCatFilter(this.value)">
-      <option value="">All Categories</option>
-      <option value="Gut Health &amp; Probiotics">Gut Health &amp; Probiotics</option>
-      <option value="Immunity &amp; Antioxidant">Immunity &amp; Antioxidant</option>
-      <option value="Beauty &amp; Skin">Beauty &amp; Skin</option>
-      <option value="Energy &amp; Vitality">Energy &amp; Vitality</option>
-      <option value="Blood Sugar &amp; Metabolic">Blood Sugar &amp; Metabolic</option>
-      <option value="Women's Health">Women's Health</option>
-      <option value="Weight Management">Weight Management</option>
-      <option value="Bone &amp; Joint">Bone &amp; Joint</option>
-      <option value="Anti-inflammation &amp; Curcumin">Anti-inflammation &amp; Curcumin</option>
-    </select>
     <div class="lang-toggle">
       <button class="lang-btn active" id="btnLangEn" onclick="setLang('en')">EN</button>
       <div class="lang-divider"></div>
       <button class="lang-btn" id="btnLangKr" onclick="setLang('kr')">한국어</button>
     </div>
-    <button class="pdf-btn" onclick="window.print()">
-      <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
-      <span data-en="Export PDF" data-kr="PDF 저장">Export PDF</span>
+    <button class="vip-btn" onclick="openModal()">
+      <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+      REQUEST VIP MATCHING
     </button>
   </div>
 </div>
@@ -476,37 +277,134 @@ footer {
 <!-- HERO -->
 <div id="hero">
   <div class="hero-eyebrow">🇰🇷 <span data-en="Korea Health Functional Food Association · 2026" data-kr="한국건강기능식품협회 · 2026">Korea Health Functional Food Association · 2026</span></div>
-  <h1 data-en="Korean Health Functional Food<br/><em>Global Buyer Catalog</em>" data-kr="한국 건강기능식품<br/><em>해외 바이어 카탈로그</em>">Korean Health Functional Food<br/><em>Global Buyer Catalog</em></h1>
-  <p class="hero-sub" data-en="Organized by Korea Health Supplements Association &nbsp;·&nbsp; Implemented by Tridge Co., Ltd." data-kr="주관: 한국건강기능식품협회 &nbsp;·&nbsp; 수행: 주식회사 트릿지">Organized by Korea Health Supplements Association &nbsp;·&nbsp; Implemented by Tridge Co., Ltd.</p>
+  <h1 data-en="2026 KHFF<br/><em>Supplier Showcase</em>" data-kr="2026 KHFF<br/><em>공급사 쇼케이스</em>">2026 KHFF<br/><em>Supplier Showcase</em></h1>
+  <p class="hero-sub" data-en="Organized by Korea Health Functional Food Association &nbsp;·&nbsp; Implemented by Tridge Co., Ltd." data-kr="주관: 한국건강기능식품협회 &nbsp;·&nbsp; 수행: 주식회사 트릿지">Organized by Korea Health Functional Food Association &nbsp;·&nbsp; Implemented by Tridge Co., Ltd.</p>
   <div class="hero-stats">
     <div class="stat"><div class="stat-num">25<span></span></div><div class="stat-label" data-en="Companies" data-kr="참가기업">Companies</div></div>
-    <div class="stat"><div class="stat-num">68<span></span></div><div class="stat-label" data-en="Products" data-kr="전시상품">Products</div></div>
-    <div class="stat"><div class="stat-num">9<span></span></div><div class="stat-label" data-en="Categories" data-kr="카테고리">Categories</div></div>
+    <div class="stat"><div class="stat-num">72<span></span></div><div class="stat-label" data-en="Products" data-kr="전시상품">Products</div></div>
+    <div class="stat"><div class="stat-num">4<span></span></div><div class="stat-label" data-en="Categories" data-kr="카테고리">Categories</div></div>
     <div class="stat"><div class="stat-num">15<span>+</span></div><div class="stat-label" data-en="Target Markets" data-kr="타겟 시장">Target Markets</div></div>
   </div>
 </div>
 
-<!-- MAIN CONTENT -->
+<!-- MAIN -->
 <div class="container">
 
   <!-- HOME -->
   <div id="home">
     <div class="mode-heading">
-      <h2 data-en="Explore the Catalog" data-kr="카탈로그 탐색">Explore the Catalog</h2>
-      <p data-en="Browse 25 Korean health supplement companies and 68 products by company or health category." data-kr="25개 한국 건강기능식품 기업과 68개 상품을 기업별 또는 카테고리별로 탐색하세요.">Browse 25 Korean health supplement companies and 68 products by company or health category.</p>
+      <h2 data-en="Explore the Showcase" data-kr="쇼케이스 탐색">Explore the Showcase</h2>
+      <p data-en="Discover 25 Korean health functional food companies and 72 products." data-kr="25개 한국 건강기능식품 기업과 72개 상품을 탐색하세요.">Discover 25 Korean health functional food companies and 72 products.</p>
     </div>
     <div class="mode-cards">
+      <div class="mode-card" onclick="showAbout()">
+        <div class="mode-icon">📋</div>
+        <h3 data-en="About This Event" data-kr="사업 개요">About This Event</h3>
+        <p data-en="Learn about the VIP matching program, benefits for buyers, and how to participate." data-kr="VIP 매칭 프로그램, 바이어 혜택, 참여 방법을 알아보세요.">Learn about the VIP matching program, benefits for buyers, and how to participate.</p>
+        <div class="mode-arrow" data-en="Learn more →" data-kr="자세히 보기 →">Learn more →</div>
+      </div>
       <div class="mode-card" onclick="showCompanyView()">
         <div class="mode-icon">🏢</div>
         <h3 data-en="Browse by Company" data-kr="기업별 탐색">Browse by Company</h3>
         <p data-en="Explore individual brand profiles and their full product lineup." data-kr="각 브랜드 프로필과 전체 상품 라인업을 확인하세요.">Explore individual brand profiles and their full product lineup.</p>
         <div class="mode-arrow" data-en="View 25 companies →" data-kr="25개 기업 보기 →">View 25 companies →</div>
       </div>
-      <div class="mode-card" onclick="showCategoryView()">
+      <div class="mode-card" onclick="showProductTypeView()">
         <div class="mode-icon">🗂️</div>
-        <h3 data-en="Browse by Category" data-kr="카테고리별 탐색">Browse by Category</h3>
-        <p data-en="Filter by health function — gut health, beauty, immunity, and more." data-kr="장건강, 뷰티, 면역 등 기능별로 필터링하세요.">Filter by health function — gut health, beauty, immunity, and more.</p>
-        <div class="mode-arrow" data-en="View 9 categories →" data-kr="9개 카테고리 보기 →">View 9 categories →</div>
+        <h3 data-en="Browse by Product Type" data-kr="제품 유형별 탐색">Browse by Product Type</h3>
+        <p data-en="Filter by Finished Goods or Raw Materials, grouped by health category." data-kr="완제품 또는 원료별로 필터링하고 건강 카테고리로 그룹화하여 탐색하세요.">Filter by Finished Goods or Raw Materials, grouped by health category.</p>
+        <div class="mode-arrow" data-en="Explore products →" data-kr="상품 탐색 →">Explore products →</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ABOUT VIEW -->
+  <div id="aboutView">
+    <div class="section-header">
+      <button class="back-btn" onclick="showHome()" data-en="← Back" data-kr="← 뒤로">← Back</button>
+      <h2 class="section-title" data-en="About This Event" data-kr="사업 개요">About This Event</h2>
+    </div>
+    <div class="about-hero">
+      <div class="about-eyebrow">🏆 VIP Hosted Buyer Program · 2026</div>
+      <h2>Korea's Best Health Brands,<br/><em>Matched to Your Sourcing Needs</em></h2>
+      <p class="about-hero-sub">This is not a trade show where you collect business cards. Every supplier in this showcase has been pre-verified by Korea Health Functional Food Association (KHFF). You meet only the companies that fit your sourcing profile — saving your time and accelerating your decisions.</p>
+      <div class="about-stats">
+        <div class="about-stat"><div class="about-stat-num">25</div><div class="about-stat-label">Verified Korean suppliers</div></div>
+        <div class="about-stat"><div class="about-stat-num">5</div><div class="about-stat-label">VIP buyers invited to Seoul</div></div>
+        <div class="about-stat"><div class="about-stat-num">Aug 25</div><div class="about-stat-label">Seoul COEX · 1:1 sessions</div></div>
+        <div class="about-stat"><div class="about-stat-num">Free</div><div class="about-stat-label">Airfare & accommodation</div></div>
+      </div>
+    </div>
+
+    <div class="about-section">
+      <div class="about-section-title">🎁 What You Get as a VIP Buyer</div>
+      <div class="about-cards">
+        <div class="about-card">
+          <div class="about-card-icon" style="background:#E6F7F3">✈️</div>
+          <h4>Airfare & Seoul Accommodation Covered</h4>
+          <p>Invited VIP buyers receive full support for international flights and hotel stay in Seoul. Zero out-of-pocket cost to attend the most curated K-health sourcing event of the year.</p>
+        </div>
+        <div class="about-card">
+          <div class="about-card-icon" style="background:#EEEDFE">🎯</div>
+          <h4>Pre-matched 1:1 Sessions</h4>
+          <p>You won't waste time with irrelevant suppliers. Based on your sourcing profile, we pre-match you with the most compatible companies. Each session is 30 minutes with a dedicated interpreter.</p>
+        </div>
+        <div class="about-card">
+          <div class="about-card-icon" style="background:#FDF4E7">📄</div>
+          <h4>Post-meeting Business Support</h4>
+          <p>Our export advisors support you beyond the meeting day — from technical dossiers and COA requests to FOB/CIF quotations and regulatory guidance. We stay until the deal is done.</p>
+        </div>
+        <div class="about-card">
+          <div class="about-card-icon" style="background:#FAECE7">🔬</div>
+          <h4>KHFF-verified Suppliers Only</h4>
+          <p>Every participating company is a member of the Korea Health Functional Food Association and has passed compliance screening. You source from credible, export-ready manufacturers.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="about-section">
+      <div class="about-section-title">📅 How It Works</div>
+      <div class="about-steps">
+        <div class="about-step">
+          <div class="about-step-num">1</div>
+          <h4>Browse & Apply</h4>
+          <p>Explore the catalog, select categories of interest, and submit your VIP Matching application.</p>
+        </div>
+        <div class="about-step">
+          <div class="about-step-num">2</div>
+          <h4>Get Matched</h4>
+          <p>Our team reviews your profile and pre-matches you with the most relevant suppliers.</p>
+        </div>
+        <div class="about-step">
+          <div class="about-step-num">3</div>
+          <h4>Fly to Seoul</h4>
+          <p>Travel supported. Arrive at COEX on Aug 25 for your confirmed 1:1 meeting schedule.</p>
+        </div>
+        <div class="about-step">
+          <div class="about-step-num">4</div>
+          <h4>Close the Deal</h4>
+          <p>Expert advisors on-site to support negotiation, follow-up, and contract facilitation.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="about-section">
+      <div class="about-section-title">📍 Event Details</div>
+      <div class="about-event-info">
+        <div class="about-info-item"><label>Date & Time</label><span>August 25, 2026 (Tue) · 10:00 – 17:00</span></div>
+        <div class="about-info-item"><label>Venue</label><span>COEX, Seoul, South Korea</span></div>
+        <div class="about-info-item"><label>Format</label><span>1:1 Pre-matched sessions · 30 min each · Dedicated interpreter</span></div>
+        <div class="about-info-item"><label>Organizer</label><span>Korea Health Functional Food Association (KHFF)</span></div>
+        <div class="about-info-item"><label>Implemented by</label><span>Tridge Co., Ltd.</span></div>
+        <div class="about-info-item"><label>Contact</label><span>geonyeop.lim@tridge.com · andrew.kim@tridge.com</span></div>
+      </div>
+    </div>
+
+    <div class="about-cta">
+      <div><h4 data-en="Ready to source from Korea's finest?" data-kr="한국 최고의 공급사를 소싱할 준비가 되셨나요?">Ready to source from Korea's finest?</h4><p data-en="Only 5 VIP buyers will be invited. Applications close soon." data-kr="VIP 바이어는 5개사만 선정됩니다. 조기 마감될 수 있습니다.">Only 5 VIP buyers will be invited. Applications close soon.</p></div>
+      <div class="about-cta-btn" onclick="openModal()">
+        <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        REQUEST VIP MATCHING
       </div>
     </div>
   </div>
@@ -521,13 +419,17 @@ footer {
     <div class="company-grid" id="companyGrid"></div>
   </div>
 
-  <!-- CATEGORY VIEW -->
-  <div id="categoryView">
+  <!-- PRODUCT TYPE VIEW -->
+  <div id="productTypeView">
     <div class="section-header">
       <button class="back-btn" onclick="showHome()" data-en="← Back" data-kr="← 뒤로">← Back</button>
-      <h2 class="section-title" data-en="Browse by Category" data-kr="카테고리별 탐색">Browse by Category</h2>
+      <h2 class="section-title" data-en="By Product Type" data-kr="제품 유형별">By Product Type</h2>
     </div>
-    <div class="category-grid" id="categoryGrid"></div>
+    <div class="pt-tabs">
+      <div class="pt-tab active" id="tabFinished" onclick="switchTab('finished')" data-en="Tab A · Finished Goods" data-kr="탭 A · 완제품">Tab A · Finished Goods</div>
+      <div class="pt-tab" id="tabIngredient" onclick="switchTab('ingredient')" data-en="Tab B · Raw Materials" data-kr="탭 B · 원료">Tab B · Raw Materials</div>
+    </div>
+    <div id="productTypeContent"></div>
   </div>
 
   <!-- COMPANY DETAIL -->
@@ -551,13 +453,13 @@ footer {
     <div class="product-grid" id="searchGrid"></div>
   </div>
 
-</div><!-- /container -->
+</div>
 
+<!-- FOOTER -->
 <footer>
   <div class="footer-inner">
     <div class="footer-left">
-      <img src="./images/KHFF_Primary_Logo_Vertical.png" class="footer-logo" alt="KHFF"
-        onerror="this.style.display='none'"/>
+      <img src="./images/KHFF_Primary_Logo_Vertical.png" class="footer-logo" alt="KHFF" onerror="this.style.display='none'"/>
       <div class="footer-divider"></div>
       <div>
         <div class="footer-org-label" data-en="Organized by" data-kr="주관">Organized by</div>
@@ -576,508 +478,584 @@ footer {
   </div>
 </footer>
 
+<!-- VIP MODAL -->
+<div class="modal-overlay" id="modalOverlay" onclick="handleOverlayClick(event)">
+  <div class="modal-box">
+    <div class="modal-header">
+      <div class="modal-badge">⭐ VIP Hosted Buyer Program · KHFF 2026</div>
+      <div class="modal-title">VIP Matchmaking Application</div>
+      <div class="modal-sub">Applications reviewed within 3 business days. Only 5 buyers will be invited to Seoul.</div>
+      <span class="modal-close-btn" onclick="closeModal()">×</span>
+    </div>
+    <div class="modal-body">
+
+      <!-- SECTION 1 -->
+      <div class="fm-sec">
+        <div class="fm-sec-header">
+          <div class="fm-sec-num">1</div>
+          <div class="fm-sec-name">Buyer Identity</div>
+        </div>
+        <div class="fm-sec-desc">Verify your authority and contact details. Personal emails are not accepted.</div>
+        <div class="fm-grid">
+          <div class="fm-field">
+            <div class="fm-label">Full Name <span class="req">*</span></div>
+            <input class="fm-input" type="text" id="f_name" placeholder="e.g. Sarah Johnson"/>
+          </div>
+          <div class="fm-field">
+            <div class="fm-label">Job Title / Position <span class="req">*</span></div>
+            <select class="fm-input" id="f_title">
+              <option value="">Select your title…</option>
+              <option>C-Level (CEO / COO / CMO)</option>
+              <option>R&D Director</option>
+              <option>Sourcing & Procurement Head</option>
+              <option>Category Manager</option>
+              <option>Others</option>
+            </select>
+          </div>
+          <div class="fm-field">
+            <div class="fm-label">Corporate Email <span class="req">*</span></div>
+            <input class="fm-input" type="email" id="f_email" placeholder="you@company.com"/>
+            <div class="fm-hint">Gmail, Yahoo, Hotmail etc. not accepted</div>
+          </div>
+          <div class="fm-field">
+            <div class="fm-label">Company Name & Website <span class="req">*</span></div>
+            <input class="fm-input" type="text" id="f_company" placeholder="Company Inc. · www.company.com"/>
+          </div>
+          <div class="fm-field" style="grid-column:1/-1">
+            <div class="fm-label">HQ Country <span class="req">*</span></div>
+            <input class="fm-input" type="text" id="f_country" placeholder="e.g. Thailand, Germany, USA"/>
+          </div>
+        </div>
+      </div>
+
+      <!-- SECTION 2 -->
+      <div class="fm-sec">
+        <div class="fm-sec-header">
+          <div class="fm-sec-num">2</div>
+          <div class="fm-sec-name">Business Scale & Capability</div>
+        </div>
+        <div class="fm-sec-desc">Help us match you with the most relevant suppliers.</div>
+        <div class="fm-grid">
+          <div class="fm-field">
+            <div class="fm-label">Primary Business Type <span class="req">*</span></div>
+            <select class="fm-input" id="f_biztype">
+              <option value="">Select type…</option>
+              <option>Retail & Pharmacy Chain</option>
+              <option>Importer & Distributor</option>
+              <option>OEM / ODM Manufacturer</option>
+              <option>Pharma Company</option>
+              <option>Cross-border E-commerce</option>
+            </select>
+          </div>
+          <div class="fm-field">
+            <div class="fm-label">Annual Revenue (USD) <span class="req">*</span></div>
+            <select class="fm-input" id="f_revenue">
+              <option value="">Select range…</option>
+              <option>Under $1M</option>
+              <option>$1M – $5M</option>
+              <option>$5M – $10M</option>
+              <option>$10M – $50M</option>
+              <option>Over $50M</option>
+            </select>
+          </div>
+        </div>
+        <div class="fm-field" style="margin-top:4px">
+          <div class="fm-label">Import & Regulatory Capability (select all that apply)</div>
+          <div style="margin-top:6px">
+            <label class="fm-check-item"><input type="checkbox" id="f_reg1"/><span>We hold a valid license to import dietary supplements / raw materials</span></label>
+            <label class="fm-check-item"><input type="checkbox" id="f_reg2"/><span>We have an in-house Regulatory Affairs (RA) team for local FDA / EFSA registration</span></label>
+            <label class="fm-check-item"><input type="checkbox" id="f_reg3"/><span>We operate a GMP / Halal certified manufacturing facility</span></label>
+          </div>
+        </div>
+        <div class="fm-field">
+          <div class="fm-label">Experience with Korean Products <span class="req">*</span></div>
+          <div style="margin-top:6px">
+            <label class="fm-check-item"><input type="radio" name="krexp" value="Currently sourcing Korean products"/><span>Currently sourcing Korean products</span></label>
+            <label class="fm-check-item"><input type="radio" name="krexp" value="No history, but actively looking"/><span>No history, but actively looking to source</span></label>
+            <label class="fm-check-item"><input type="radio" name="krexp" value="No history, just exploring"/><span>No history, just exploring</span></label>
+          </div>
+        </div>
+        <div class="fm-field" style="margin-bottom:0">
+          <div class="fm-label">Target Distribution / Application Channel <span class="req">*</span></div>
+          <input class="fm-input" type="text" id="f_channel" placeholder='e.g. "To distribute in 100+ Watsons stores across SEA"'/>
+        </div>
+      </div>
+
+      <!-- SECTION 3 -->
+      <div class="fm-sec">
+        <div class="fm-sec-header">
+          <div class="fm-sec-num">3</div>
+          <div class="fm-sec-name">Sourcing Intent</div>
+        </div>
+        <div class="fm-sec-desc">Select all categories you're interested in — like adding to a cart.</div>
+        <div class="fm-tab-row">
+          <div class="fm-tab active" id="fmTabA" onclick="switchFmTab('A')">Tab A · Finished Goods</div>
+          <div class="fm-tab" id="fmTabB" onclick="switchFmTab('B')">Tab B · Raw Materials</div>
+        </div>
+        <div id="fmCatA">
+          <label class="cat-check-card"><input type="checkbox" id="fc_A1"/><div class="cat-ico" style="background:#E6F7F3">🦠</div><div class="cat-info"><div class="cat-nm">Gut Health & Microbiome</div><div class="cat-eg">Probiotics, Postbiotics finished goods</div></div></label>
+          <label class="cat-check-card"><input type="checkbox" id="fc_A2"/><div class="cat-ico" style="background:#FBEAF0">✨</div><div class="cat-info"><div class="cat-nm">Beauty-from-Within</div><div class="cat-eg">Collagen ampoules, Elastin jellies</div></div></label>
+          <label class="cat-check-card"><input type="checkbox" id="fc_A3"/><div class="cat-ico" style="background:#FDF4E7">⚖️</div><div class="cat-info"><div class="cat-nm">Metabolic & Specialized Care</div><div class="cat-eg">Diet jellies, Women's health, Bone & Joint</div></div></label>
+          <label class="cat-check-card"><input type="checkbox" id="fc_A4"/><div class="cat-ico" style="background:#EEEDFE">⚡</div><div class="cat-info"><div class="cat-nm">Immunity & Vitality</div><div class="cat-eg">Red ginseng, Energy shots, Propolis</div></div></label>
+        </div>
+        <div id="fmCatB" style="display:none">
+          <label class="cat-check-card"><input type="checkbox" id="fc_B1"/><div class="cat-ico" style="background:#E6F7F3">🦠</div><div class="cat-info"><div class="cat-nm">Gut Health & Microbiome</div><div class="cat-eg">Heat-treated postbiotics, Patented strains</div></div></label>
+          <label class="cat-check-card"><input type="checkbox" id="fc_B2"/><div class="cat-ico" style="background:#FBEAF0">✨</div><div class="cat-info"><div class="cat-nm">Beauty-from-Within</div><div class="cat-eg">Tripeptide collagen, Botanical extracts</div></div></label>
+          <label class="cat-check-card"><input type="checkbox" id="fc_B3"/><div class="cat-ico" style="background:#FDF4E7">⚖️</div><div class="cat-info"><div class="cat-nm">Metabolic & Specialized Care</div><div class="cat-eg">D-Chiro Inositol, Morosil</div></div></label>
+          <label class="cat-check-card"><input type="checkbox" id="fc_B4"/><div class="cat-ico" style="background:#EEEDFE">⚡</div><div class="cat-info"><div class="cat-nm">Immunity & Vitality</div><div class="cat-eg">Theracurmin, Propolis powder</div></div></label>
+        </div>
+        <div class="fm-field" style="margin-top:16px">
+          <div class="fm-label">Private Labeling / OEM · ODM Interest <span class="req">*</span></div>
+          <div style="margin-top:6px">
+            <label class="fm-check-item"><input type="radio" name="oem" value="Yes, actively looking for OEM/ODM partners"/><span>Yes, actively looking for OEM / ODM partners</span></label>
+            <label class="fm-check-item"><input type="radio" name="oem" value="No, looking for ready-to-sell brands"/><span>No, looking for ready-to-sell brands</span></label>
+          </div>
+        </div>
+        <div class="fm-field" style="margin-bottom:0;margin-top:16px">
+          <div class="fm-label">Next Step Request (select all that apply) <span class="req">*</span></div>
+          <div class="next-grid" style="margin-top:8px">
+            <label class="next-item"><input type="checkbox" id="fn1"/><span>Request Technical Dossiers / COA</span></label>
+            <label class="next-item"><input type="checkbox" id="fn2"/><span>Request Physical Samples</span></label>
+            <label class="next-item"><input type="checkbox" id="fn3"/><span>Request FOB / CIF Quotation & MOQ</span></label>
+            <label class="next-item"><input type="checkbox" id="fn4"/><span>Schedule 1:1 VIP Meeting in Seoul</span></label>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <div class="modal-footer">
+      <div class="modal-privacy">🔒 Your data is used solely for matching purposes</div>
+      <div style="display:flex;gap:10px">
+        <button class="modal-cancel-btn" onclick="closeModal()">Cancel</button>
+        <button class="modal-submit-btn" onclick="submitForm()">
+          <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          Submit Application
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- TOAST -->
+<div class="toast" id="toast"></div>
+
 <script>
-/* ═══════════════════════════════════════════════════════
-   LANGUAGE
-═══════════════════════════════════════════════════════ */
+/* ═══════════════ LANGUAGE ═══════════════ */
 let currentLang = 'en';
 
-const KR_CAT = {
-  "Gut Health & Probiotics":      "장건강 & 프로바이오틱스",
-  "Immunity & Antioxidant":       "면역 & 항산화",
-  "Beauty & Skin":                "뷰티 & 피부",
-  "Energy & Vitality":            "에너지 & 활력",
-  "Blood Sugar & Metabolic":      "혈당 & 대사",
-  "Women's Health":               "여성 건강",
-  "Weight Management":            "체중 관리",
-  "Bone & Joint":                 "뼈 & 관절",
-  "Anti-inflammation & Curcumin": "항염 & 커큐민",
-  "Beauty & Skin / Gut Health":   "뷰티 & 장건강",
+const NEW_CATS = {
+  "Gut Health & Microbiome":      { color:"#4A90D9", icon:"🦠", kr:"장건강 & 마이크로바이옴" },
+  "Beauty-from-Within":           { color:"#E8788A", icon:"✨", kr:"이너뷰티" },
+  "Metabolic & Specialized Care": { color:"#E6A817", icon:"⚖️", kr:"대사 & 맞춤 건강" },
+  "Immunity & Vitality":          { color:"#27AE60", icon:"⚡", kr:"면역 & 활력" },
 };
 
-const KR_TYPE = {
-  "Finished Product": "완제품",
-  "Raw Ingredient":   "원료",
+// 기존 9개 → 4개 매핑
+const CAT_MAP = {
+  "Gut Health & Probiotics":      "Gut Health & Microbiome",
+  "Beauty & Skin":                "Beauty-from-Within",
+  "Blood Sugar & Metabolic":      "Metabolic & Specialized Care",
+  "Weight Management":            "Metabolic & Specialized Care",
+  "Women's Health":               "Metabolic & Specialized Care",
+  "Bone & Joint":                 "Metabolic & Specialized Care",
+  "Energy & Vitality":            "Immunity & Vitality",
+  "Immunity & Antioxidant":       "Immunity & Vitality",
+  "Anti-inflammation & Curcumin": "Immunity & Vitality",
+  "Beauty & Skin / Gut Health":   "Beauty-from-Within",
 };
 
-// Korean product names
 const KR_PRODUCT_NAME = {
-  "p001":"콜라겐 젤리 스틱", "p002":"알로에 젤리 스틱", "p003":"연어 비연골 추출물",
-  "p004":"갱년기 여성 N '미작 플러스'", "p005":"네버 포겟 (포스파티딜세린 & 은행잎)", "p006":"랩-바이옴 C.부티리쿰 프로바이오틱스",
-  "p007":"맛있는 프로폴리스", "p008":"맛있는 츄어블 프로폴리스", "p009":"유니비이 수용성 프로폴리스 분말 500",
-  "p010":"혈당엔 유산균 HAC01", "p011":"리씬 365",
-  "p012":"정원삼 6년근 고려홍삼정 365스틱 에너지", "p013":"정원삼 6년근 고려홍삼정 365스틱", "p014":"정원삼 홍삼석류스틱 밸런스",
-  "p015":"프로바이오틱스 (고객사 맞춤)", "p016":"포스트바이오틱스 (고객사 맞춤)", "p017":"프로바이오틱스 원료",
-  "p018":"MED-02 프로바이오틱 균주", "p019":"MED-19 프로바이오틱 균주", "p020":"LABISEN 슈프림 시리즈",
-  "p021":"뷰틱 스킨 콜라겐 시그니처", "p022":"천지인 홍삼절편", "p023":"천지인 꼬마버스 타요 홍삼 스틱 사과맛",
-  "p024":"수용성 프로폴리스 추출물", "p025":"프로비 프로폴리스 이뮬 스프레이", "p026":"프로비 프로폴리스 이뮬 스틱",
-  "p027":"개발 원료 14종", "p028":"케어바이오틱스", "p029":"에스클래스 그로우업 칼슘 젤리",
-  "p030":"사균체 락티플란티바실러스 (포스트바이오틱스)", "p031":"프로바이오틱스 건강기능식품", "p032":"프로바이오틱스 원료",
-  "p033":"테라큐민 (고흡수 커큐민)", "p034":"테라큐민 슈퍼 (고급 포뮬러)",
-  "p035":"스노브 에너지 충전", "p036":"리;웨이크+", "p037":"리;네랄 (미네랄 서플리먼트)",
-  "p038":"모로실 바나바 다발정제", "p039":"로즈마리 자몽 전해질 워터믹스", "p040":"철분 멜팅 파우더",
-  "p041":"디-카이로 이노시콜", "p042":"피쉬 콜라겐 트리펩타이드", "p043":"엔-아세틸글루코사민 (NAG)",
-  "p044":"마그네슘 피드액", "p045":"비타민 C&B 드링크", "p046":"데일리 홍삼정",
-  "p047":"NVP-1702", "p048":"NVP-1703", "p049":"NVP-1706",
-  "p050":"키위바이오틱스 (프리바이오틱스)", "p051":"속편한 세상 파라바이오틱스", "p052":"퓨어글로우 오메가7",
-  "p053":"이알하나 메노포즈", "p054":"이알하나 식물성 멜라토닌", "p055":"이알하나 면역",
-  "p056":"유산균발효마늘추출분말", "p057":"홍도라지농축액", "p058":"발효율피추출분말",
-  "p059":"온리추얼 슬리밍컷 다이어트", "p060":"온리추얼 리셋 브이라인", "p061":"온리추얼 헬시그린 클렌즈",
-  "p062":"더진한 BE뱅쇼", "p063":"더진한 에이드 과일 농축액 1.5kg", "p064":"한포유 아르기닌핏 6000+ & 블랙마카에너지 2000+",
-  "p065":"스킨마스터 피에스트로", "p066":"스킨마스터 피에스트로 글로우 젤리", "p067":"스킨마스터 피에스트로 포우먼 젤리",
-  "p068":"저분자 콜라겐 펩타이드", "p069":"핑거루트 추출분말",
-  "p070":"이너비 글로우앰플/스틱", "p071":"이너비 피디알엔 리즈", "p072":"BYCORE 피부면역유산균",
+  "p001":"콜라겐 젤리 스틱","p002":"알로에 젤리 스틱","p003":"연어 비연골 추출물",
+  "p004":"갱년기 여성 N 미작 플러스","p005":"네버 포겟 PS & 은행잎","p006":"랩-바이옴 C.부티리쿰 프로바이오틱스",
+  "p007":"맛있는 프로폴리스","p008":"맛있는 츄어블 프로폴리스","p009":"유니비이 수용성 프로폴리스 분말 500",
+  "p010":"혈당엔 유산균 HAC01","p011":"리씬 365",
+  "p012":"정원삼 6년근 고려홍삼정 365스틱 에너지","p013":"정원삼 6년근 고려홍삼정 365스틱","p014":"정원삼 홍삼석류스틱 밸런스",
+  "p015":"프로바이오틱스 고객사 맞춤","p016":"포스트바이오틱스 고객사 맞춤","p017":"프로바이오틱스 원료",
+  "p018":"MED-02 프로바이오틱 균주","p019":"MED-19 프로바이오틱 균주","p020":"LABISEN 슈프림 시리즈",
+  "p021":"뷰틱 스킨 콜라겐 시그니처","p022":"천지인 홍삼절편","p023":"천지인 타요 홍삼 스틱 사과맛",
+  "p024":"수용성 프로폴리스 추출물","p025":"프로비 프로폴리스 이뮬 스프레이","p026":"프로비 프로폴리스 이뮬 스틱",
+  "p027":"개발 원료 14종","p028":"케어바이오틱스","p029":"에스클래스 그로우업 칼슘 젤리",
+  "p030":"사균체 락티플란티바실러스","p031":"프로바이오틱스 건강기능식품","p032":"프로바이오틱스 원료",
+  "p033":"테라큐민 고흡수 커큐민","p034":"테라큐민 슈퍼",
+  "p035":"스노브 에너지 충전","p036":"리;웨이크+","p037":"리;네랄 미네랄 서플리먼트",
+  "p038":"모로실 바나바 다발정제","p039":"로즈마리 자몽 전해질 워터믹스","p040":"철분 멜팅 파우더",
+  "p041":"디-카이로 이노시콜","p042":"피쉬 콜라겐 트리펩타이드","p043":"엔-아세틸글루코사민",
+  "p044":"마그네슘 피드액","p045":"비타민 C&B 드링크","p046":"데일리 홍삼정",
+  "p047":"NVP-1702","p048":"NVP-1703","p049":"NVP-1706",
+  "p050":"키위바이오틱스","p051":"속편한 세상 파라바이오틱스","p052":"퓨어글로우 오메가7",
+  "p053":"이알하나 메노포즈","p054":"이알하나 식물성 멜라토닌","p055":"이알하나 면역",
+  "p056":"유산균발효마늘추출분말","p057":"홍도라지농축액","p058":"발효율피추출분말",
+  "p059":"온리추얼 슬리밍컷 다이어트","p060":"온리추얼 리셋 브이라인","p061":"온리추얼 헬시그린 클렌즈",
+  "p062":"더진한 BE뱅쇼","p063":"더진한 에이드 과일 농축액 1.5kg","p064":"아르기닌핏 6000+ & 블랙마카에너지 2000+",
+  "p065":"스킨마스터 피에스트로","p066":"스킨마스터 피에스트로 글로우 젤리","p067":"스킨마스터 피에스트로 포우먼 젤리",
+  "p068":"저분자 콜라겐 펩타이드","p069":"핑거루트 추출분말",
+  "p070":"이너비 글로우앰플/스틱","p071":"이너비 피디알엔 리즈","p072":"BYCORE 피부면역유산균",
 };
 
-const KR_MARKET_LABEL = "📍 타겟 시장:";
-const EN_MARKET_LABEL = "📍 Target:";
-
-const UI_TEXT = {
-  en: {
-    searchPlaceholder: "Search products or companies…",
-    companyCount: n => `${n} companies`,
-    productCount: n => `${n} products`,
-    companyCountFull: n => `${n} companies`,
-    searchTitle: q => `Results for "${q}"`,
-    searchFound: n => `${n} found`,
-    noResults: "No products found. Try a different keyword.",
-    backAll: "← All Companies",
-    backCat: "← All Categories",
-    back: "← Back",
-    productsFrom: (n, c) => `${n} products from ${c} companies`,
-    allCat: "All Categories",
-    catOptions: {
-      "Gut Health & Probiotics": "Gut Health & Probiotics",
-      "Immunity & Antioxidant": "Immunity & Antioxidant",
-      "Beauty & Skin": "Beauty & Skin",
-      "Energy & Vitality": "Energy & Vitality",
-      "Blood Sugar & Metabolic": "Blood Sugar & Metabolic",
-      "Women's Health": "Women's Health",
-      "Weight Management": "Weight Management",
-      "Bone & Joint": "Bone & Joint",
-      "Anti-inflammation & Curcumin": "Anti-inflammation & Curcumin",
-    }
+const KR_TYPE = { "Finished Product":"완제품", "Raw Ingredient":"원료" };
+const UI = {
+  en:{
+    searchPlaceholder:"Search products or companies…",
+    companyCount:n=>`${n} companies`, productCount:n=>`${n} products`,
+    searchTitle:q=>`Results for "${q}"`, searchFound:n=>`${n} found`,
+    noResults:"No products found. Try a different keyword.",
+    backAll:"← All Companies", backCat:"← All Categories", back:"← Back",
+    productsFrom:(n,c)=>`${n} products from ${c} companies`,
+    tabFinished:"Tab A · Finished Goods", tabIngredient:"Tab B · Raw Materials",
   },
-  kr: {
-    searchPlaceholder: "상품명 또는 기업명 검색…",
-    companyCount: n => `${n}개 기업`,
-    productCount: n => `상품 ${n}개`,
-    companyCountFull: n => `${n}개 기업`,
-    searchTitle: q => `"${q}" 검색 결과`,
-    searchFound: n => `${n}개 결과`,
-    noResults: "검색 결과가 없습니다. 다른 키워드를 입력해 보세요.",
-    backAll: "← 전체 기업",
-    backCat: "← 전체 카테고리",
-    back: "← 뒤로",
-    productsFrom: (n, c) => `${c}개 기업의 ${n}개 상품`,
-    allCat: "전체 카테고리",
-    catOptions: KR_CAT,
+  kr:{
+    searchPlaceholder:"상품명 또는 기업명 검색…",
+    companyCount:n=>`${n}개 기업`, productCount:n=>`상품 ${n}개`,
+    searchTitle:q=>`"${q}" 검색 결과`, searchFound:n=>`${n}개 결과`,
+    noResults:"검색 결과가 없습니다.",
+    backAll:"← 전체 기업", backCat:"← 전체 카테고리", back:"← 뒤로",
+    productsFrom:(n,c)=>`${c}개 기업의 ${n}개 상품`,
+    tabFinished:"탭 A · 완제품", tabIngredient:"탭 B · 원료",
   }
 };
+function t(k,...a){ const fn=UI[currentLang][k]; return typeof fn==='function'?fn(...a):fn; }
 
-function t(key, ...args) {
-  const fn = UI_TEXT[currentLang][key];
-  return typeof fn === 'function' ? fn(...args) : fn;
-}
-
-function setLang(lang) {
-  currentLang = lang;
-  document.getElementById('btnLangEn').classList.toggle('active', lang === 'en');
-  document.getElementById('btnLangKr').classList.toggle('active', lang === 'kr');
-
-  // update all data-en / data-kr elements
-  document.querySelectorAll('[data-en]').forEach(el => {
-    const val = el.getAttribute(`data-${lang}`);
-    if (val) el.innerHTML = val;
+function setLang(lang){
+  currentLang=lang;
+  document.getElementById('btnLangEn').classList.toggle('active',lang==='en');
+  document.getElementById('btnLangKr').classList.toggle('active',lang==='kr');
+  document.querySelectorAll('[data-en]').forEach(el=>{
+    const v=el.getAttribute('data-'+lang); if(v) el.innerHTML=v;
   });
-
-  // update search placeholder
-  document.getElementById('searchInput').placeholder = t('searchPlaceholder');
-
-  // update catFilter options
-  const sel = document.getElementById('catFilter');
-  sel.options[0].text = t('allCat');
-  const cats = Object.keys(UI_TEXT.en.catOptions);
-  cats.forEach((cat, i) => {
-    if (sel.options[i+1]) sel.options[i+1].text = t('catOptions')[cat] || cat;
-  });
-
-  // re-render current view
-  const visibleView = ['home','companyView','categoryView','companyDetail','searchResults']
-    .find(v => document.getElementById(v).style.display !== 'none');
-  if (visibleView === 'companyView') renderCompanyGrid(companies);
-  else if (visibleView === 'categoryView') showCategoryView();
+  document.getElementById('searchInput').placeholder=t('searchPlaceholder');
+  document.getElementById('tabFinished').textContent=t('tabFinished');
+  document.getElementById('tabIngredient').textContent=t('tabIngredient');
+  const vis=['home','aboutView','companyView','productTypeView','companyDetail','searchResults']
+    .find(v=>document.getElementById(v).style.display!=='none');
+  if(vis==='companyView') renderCompanyGrid(companies);
+  else if(vis==='productTypeView'){
+    const tab=document.getElementById('tabFinished').classList.contains('active')?'finished':'ingredient';
+    renderProductType(tab);
+  }
 }
 
-function productName(p) {
-  return currentLang === 'kr' ? (KR_PRODUCT_NAME[p.id] || p.nameEn) : p.nameEn;
-}
-function catLabel(cat) {
-  return currentLang === 'kr' ? (KR_CAT[cat] || cat) : cat;
-}
-function typeLabel(type) {
-  return currentLang === 'kr' ? (KR_TYPE[type] || type) : type;
-}
-function marketLabel() {
-  return currentLang === 'kr' ? KR_MARKET_LABEL : EN_MARKET_LABEL;
-}
+function productName(p){ return currentLang==='kr'?(KR_PRODUCT_NAME[p.id]||p.nameEn):p.nameEn; }
+function newCat(oldCat){ return CAT_MAP[oldCat]||oldCat; }
+function catColor(cat){ return (NEW_CATS[cat]||{color:'#888'}).color; }
+function catIcon(cat){ return (NEW_CATS[cat]||{icon:'📦'}).icon; }
+function catLabel(cat){ return currentLang==='kr'?(NEW_CATS[cat]||{}).kr||cat:cat; }
 
-
-const CAT_COLOR = {
-  "Gut Health & Probiotics":      "#4A90D9",
-  "Immunity & Antioxidant":       "#27AE60",
-  "Beauty & Skin":                "#E8788A",
-  "Energy & Vitality":            "#E6A817",
-  "Blood Sugar & Metabolic":      "#E05C5C",
-  "Women's Health":               "#9B59B6",
-  "Weight Management":            "#16A085",
-  "Bone & Joint":                 "#2980B9",
-  "Anti-inflammation & Curcumin": "#8E44AD",
-  "Beauty & Skin / Gut Health":   "#7F8C8D",
-};
-
-const CAT_ICON = {
-  "Gut Health & Probiotics":      "🦠",
-  "Immunity & Antioxidant":       "🛡️",
-  "Beauty & Skin":                "✨",
-  "Energy & Vitality":            "⚡",
-  "Blood Sugar & Metabolic":      "🩸",
-  "Women's Health":               "🌸",
-  "Weight Management":            "⚖️",
-  "Bone & Joint":                 "🦴",
-  "Anti-inflammation & Curcumin": "🌿",
-};
-
-// ── COMPANIES ──────────────────────────────────────────
+/* ═══════════════ DATA ═══════════════ */
 const companies = [
-  { id:1,  en:"Naturetech",           kr:"네이처텍",       logo:"./images/logo/naturetech.png" },
-  { id:2,  en:"Medica Korea",         kr:"메디카코리아",    logo:"./images/logo/medicakorea.png" },
-  { id:3,  en:"Unique Biotech",       kr:"유니크바이오텍",  logo:"./images/logo/uniquebiotech.png" },
-  { id:4,  en:"Atogen",               kr:"에이투젠",        logo:"./images/logo/atogen.png" },
-  { id:5,  en:"Nature Garden",        kr:"네이처가든",      logo:"./images/logo/naturegarden.png" },
-  { id:6,  en:"Ildong Bioscience",    kr:"일동바이오사이언스", logo:"./images/logo/ildongbio.png" },
-  { id:7,  en:"Mediogen",             kr:"메디오젠",        logo:"./images/logo/mediogen.png" },
-  { id:8,  en:"Dongwon F&B",          kr:"동원에프엔비",    logo:"./images/logo/dongwon.png" },
-  { id:9,  en:"Seoul Propolis",       kr:"서울프로폴리스",  logo:"./images/logo/seoulpropolis.png" },
-  { id:10, en:"Webiom",               kr:"위바이옴",        logo:"./images/logo/webiom.png" },
-  { id:11, en:"Lactomason",           kr:"락토메이슨",      logo:"./images/logo/lactomason.png" },
-  { id:12, en:"Handok Healthcare",    kr:"한독헬스케어",    logo:"./images/logo/handok.png" },
-  { id:13, en:"BigSum Bio",           kr:"빅썸바이오",      logo:"./images/logo/bigsum.png" },
-  { id:14, en:"Kwangdong Health Bio", kr:"광동헬스바이오",  logo:"./images/logo/kwangdong.png" },
-  { id:15, en:"Amicogen",             kr:"아미코젠",        logo:"./images/logo/amicogen.png" },
-  { id:16, en:"Ilyang Pharmaceutical",kr:"일양약품",        logo:"./images/logo/ilyang.png" },
-  { id:17, en:"NVP Healthcare",       kr:"엔비피헬스케어",  logo:"./images/logo/nvp.png" },
-  { id:18, en:"Bitek",                kr:"바이텍",          logo:"./images/logo/bitek.png" },
-  { id:19, en:"Cinnamon Lab",         kr:"시나몬랩",        logo:"./images/logo/cinnamonlab.png" },
-  { id:20, en:"Hyundai Bioland",      kr:"현대바이오랜드",  logo:"./images/logo/hyundaibioland.png" },
-  { id:21, en:"Hecto Healthcare",     kr:"헥토헬스케어",    logo:"./images/logo/hecto.png" },
-  { id:22, en:"Wellfine",             kr:"웰파인",          logo:"./images/logo/wellfine.png" },
-  { id:23, en:"HL Science",           kr:"에이치엘사이언스",logo:"./images/logo/hlscience.png" },
-  { id:24, en:"Nutri",                kr:"뉴트리",          logo:"./images/logo/nutri.png" },
-  { id:25, en:"CJ Wellcare",          kr:"씨제이웰케어",    logo:"./images/logo/cjwellcare.png" },
+  {id:1,en:"Naturetech",kr:"네이처텍",logo:"./images/logo/naturetech.png"},
+  {id:2,en:"Medica Korea",kr:"메디카코리아",logo:"./images/logo/medicakorea.png"},
+  {id:3,en:"Unique Biotech",kr:"유니크바이오텍",logo:"./images/logo/uniquebiotech.png"},
+  {id:4,en:"Atogen",kr:"에이투젠",logo:"./images/logo/atogen.png"},
+  {id:5,en:"Nature Garden",kr:"네이처가든",logo:"./images/logo/naturegarden.png"},
+  {id:6,en:"Ildong Bioscience",kr:"일동바이오사이언스",logo:"./images/logo/ildongbio.png"},
+  {id:7,en:"Mediogen",kr:"메디오젠",logo:"./images/logo/mediogen.png"},
+  {id:8,en:"Dongwon F&B",kr:"동원에프엔비",logo:"./images/logo/dongwon.png"},
+  {id:9,en:"Seoul Propolis",kr:"서울프로폴리스",logo:"./images/logo/seoulpropolis.png"},
+  {id:10,en:"Webiom",kr:"위바이옴",logo:"./images/logo/webiom.png"},
+  {id:11,en:"Lactomason",kr:"락토메이슨",logo:"./images/logo/lactomason.png"},
+  {id:12,en:"Handok Healthcare",kr:"한독헬스케어",logo:"./images/logo/handok.png"},
+  {id:13,en:"BigSum Bio",kr:"빅썸바이오",logo:"./images/logo/bigsum.png"},
+  {id:14,en:"Kwangdong Health Bio",kr:"광동헬스바이오",logo:"./images/logo/kwangdong.png"},
+  {id:15,en:"Amicogen",kr:"아미코젠",logo:"./images/logo/amicogen.png"},
+  {id:16,en:"Ilyang Pharmaceutical",kr:"일양약품",logo:"./images/logo/ilyang.png"},
+  {id:17,en:"NVP Healthcare",kr:"엔비피헬스케어",logo:"./images/logo/nvp.png"},
+  {id:18,en:"Bitek",kr:"바이텍",logo:"./images/logo/bitek.png"},
+  {id:19,en:"Cinnamon Lab",kr:"시나몬랩",logo:"./images/logo/cinnamonlab.png"},
+  {id:20,en:"Hyundai Bioland",kr:"현대바이오랜드",logo:"./images/logo/hyundaibioland.png"},
+  {id:21,en:"Hecto Healthcare",kr:"헥토헬스케어",logo:"./images/logo/hecto.png"},
+  {id:22,en:"Wellfine",kr:"웰파인",logo:"./images/logo/wellfine.png"},
+  {id:23,en:"HL Science",kr:"에이치엘사이언스",logo:"./images/logo/hlscience.png"},
+  {id:24,en:"Nutri",kr:"뉴트리",logo:"./images/logo/nutri.png"},
+  {id:25,en:"CJ Wellcare",kr:"씨제이웰케어",logo:"./images/logo/cjwellcare.png"},
 ];
 
-// ── PRODUCTS ───────────────────────────────────────────
 const products = [
-  // --- 1. Naturetech ---
-  { id:"p001", companyId:1, type:"Finished Product", nameEn:"Collagen Jelly Stick",                     category:"Beauty & Skin",                market:"Western Europe",                                    img:"./images/products/p001.jpg" },
-  { id:"p002", companyId:1, type:"Finished Product", nameEn:"Aloe Jelly Stick",                          category:"Beauty & Skin",                market:"Central Asia (Kazakhstan)",                         img:"./images/products/p002.jpg" },
-  { id:"p003", companyId:1, type:"Finished Product", nameEn:"Salmon Nasal Cartilage Extract",            category:"Bone & Joint",                 market:"Southeast Asia (Thailand, Vietnam)",                img:"./images/products/p003.jpg" },
-  // --- 2. Medica Korea ---
-  { id:"p004", companyId:2, type:"Finished Product", nameEn:"Menopausal Women N 'Mijac Plus'",           category:"Women's Health",               market:"Southeast Asia",                                    img:"./images/products/p004.jpg" },
-  { id:"p005", companyId:2, type:"Finished Product", nameEn:"Never Forget – Phosphatidylserine & Ginkgo",category:"Energy & Vitality",            market:"Southeast Asia",                                    img:"./images/products/p005.jpg" },
-  { id:"p006", companyId:2, type:"Finished Product", nameEn:"Lab-biome C. butyricum Probiotics",         category:"Gut Health & Probiotics",      market:"Southeast Asia",                                    img:"./images/products/p006.jpg" },
-  // --- 3. Unique Biotech ---
-  { id:"p007", companyId:3, type:"Finished Product", nameEn:"Tasty Propolis Supplement",                 category:"Immunity & Antioxidant",       market:"Oceania, Southeast Asia, East Asia",                img:"./images/products/p007.jpg" },
-  { id:"p008", companyId:3, type:"Finished Product", nameEn:"Tasty Chewable Propolis",                   category:"Immunity & Antioxidant",       market:"Oceania, Southeast Asia, East Asia",                img:"./images/products/p008.jpg" },
-  { id:"p009", companyId:3, type:"Raw Ingredient",   nameEn:"Unibee Water-Soluble Propolis Powder 500",  category:"Immunity & Antioxidant",       market:"Oceania, Southeast Asia, East Asia",                img:"./images/products/p009.jpg" },
-  // --- 4. Atogen ---
-  { id:"p010", companyId:4, type:"Finished Product", nameEn:"Blood Sugar Probiotic HAC01",               category:"Blood Sugar & Metabolic",      market:"East/Southeast/Central Asia, Americas, Europe",     img:"./images/products/p010.jpg" },
-  { id:"p011", companyId:4, type:"Finished Product", nameEn:"Lysine 365",                                category:"Energy & Vitality",            market:"East/Southeast/Central Asia, Americas, Europe",     img:"./images/products/p011.jpg" },
-  // --- 5. Nature Garden ---
-  { id:"p012", companyId:5, type:"Finished Product", nameEn:"Jeongsam 6yr Red Ginseng 365 Stick – Energy",category:"Energy & Vitality",           market:"Southeast Asia, Western Europe",                    img:"./images/products/p012.jpg" },
-  { id:"p013", companyId:5, type:"Finished Product", nameEn:"Jeongsam 6yr Red Ginseng 365 Stick",        category:"Energy & Vitality",            market:"Southeast Asia, Western Europe",                    img:"./images/products/p013.jpg" },
-  { id:"p014", companyId:5, type:"Finished Product", nameEn:"Jeongsam Red Ginseng & Pomegranate Stick",  category:"Energy & Vitality",            market:"Southeast Asia, Western Europe",                    img:"./images/products/p014.jpg" },
-  // --- 6. Ildong Bioscience ---
-  { id:"p015", companyId:6, type:"Finished Product", nameEn:"Custom Probiotics (B2B OEM)",               category:"Gut Health & Probiotics",      market:"Thailand, Malaysia, Vietnam, China, Japan, Europe, Indonesia", img:"./images/products/p015.jpg" },
-  { id:"p016", companyId:6, type:"Finished Product", nameEn:"Custom Postbiotics (B2B OEM)",              category:"Gut Health & Probiotics",      market:"Thailand, Malaysia, Vietnam, China, Japan, Europe, Indonesia", img:"./images/products/p016.jpg" },
-  { id:"p017", companyId:6, type:"Raw Ingredient",   nameEn:"Probiotics Raw Material",                   category:"Gut Health & Probiotics",      market:"Thailand, Malaysia, Vietnam, China, Japan, Europe, Indonesia", img:"./images/products/p017.jpg" },
-  // --- 7. Mediogen ---
-  { id:"p018", companyId:7, type:"Raw Ingredient",   nameEn:"MED-02 Probiotic Strain",                   category:"Gut Health & Probiotics",      market:"East/Southeast Asia, Western Europe, North America",img:"./images/products/p018.jpg" },
-  { id:"p019", companyId:7, type:"Raw Ingredient",   nameEn:"MED-19 Probiotic Strain",                   category:"Gut Health & Probiotics",      market:"East/Southeast Asia, Western Europe, North America",img:"./images/products/p019.jpg" },
-  { id:"p020", companyId:7, type:"Finished Product", nameEn:"LABISEN Supreme Series",                    category:"Gut Health & Probiotics",      market:"East/Southeast Asia, Western Europe, North America",img:"./images/products/p020.jpg" },
-  // --- 8. Dongwon F&B ---
-  { id:"p021", companyId:8, type:"Finished Product", nameEn:"Beautique Skin Collagen Signature",         category:"Beauty & Skin",                market:"Japan, Vietnam",                                    img:"./images/products/p021.jpg" },
-  { id:"p022", companyId:8, type:"Finished Product", nameEn:"Cheonjiin Red Ginseng Slices",              category:"Energy & Vitality",            market:"East/Southeast/Central Asia, North America",        img:"./images/products/p022.jpg" },
-  { id:"p023", companyId:8, type:"Finished Product", nameEn:"Cheonjiin Tayo Red Ginseng Stick – Apple",  category:"Energy & Vitality",            market:"East/Southeast/Central Asia, North America",        img:"./images/products/p023.jpg" },
-  // --- 9. Seoul Propolis ---
-  { id:"p024", companyId:9, type:"Raw Ingredient",   nameEn:"Water-Soluble Propolis Extract",            category:"Immunity & Antioxidant",       market:"East/Southeast Asia, USA, Europe (incl. Russia)",   img:"./images/products/p024.jpg" },
-  { id:"p025", companyId:9, type:"Finished Product", nameEn:"Probee Propolis Emul Spray",                category:"Immunity & Antioxidant",       market:"East/Southeast Asia, USA, Europe (incl. Russia)",   img:"./images/products/p025.jpg" },
-  { id:"p026", companyId:9, type:"Finished Product", nameEn:"Probee Propolis Emul Stick",                category:"Immunity & Antioxidant",       market:"East/Southeast Asia, USA, Europe (incl. Russia)",   img:"./images/products/p026.jpg" },
-  // --- 10. Webiom ---
-  { id:"p027", companyId:10, type:"Raw Ingredient",  nameEn:"14 Developed Raw Ingredients",              category:"Gut Health & Probiotics",      market:"North America (USA)",                               img:"./images/products/p027.jpg" },
-  { id:"p028", companyId:10, type:"Finished Product",nameEn:"CareBI·otics",                              category:"Gut Health & Probiotics",      market:"Europe",                                            img:"./images/products/p028.jpg" },
-  { id:"p029", companyId:10, type:"Finished Product",nameEn:"S-Class Grow-Up Calcium Jelly",             category:"Bone & Joint",                 market:"Southeast Asia (Thailand, Singapore, Indonesia)",   img:"./images/products/p029.jpg" },
-  // --- 11. Lactomason ---
-  { id:"p030", companyId:11, type:"Raw Ingredient",  nameEn:"Heat-treated Lactiplantibacillus (Postbiotic)", category:"Gut Health & Probiotics",  market:"Central Asia, Eastern/Western Europe",              img:"./images/products/p030.jpg" },
-  { id:"p031", companyId:11, type:"Finished Product",nameEn:"Probiotics Health Supplement",              category:"Gut Health & Probiotics",      market:"Central Asia, Eastern/Western Europe",              img:"./images/products/p031.jpg" },
-  { id:"p032", companyId:11, type:"Raw Ingredient",  nameEn:"Probiotics Raw Materials",                  category:"Gut Health & Probiotics",      market:"Central Asia, Eastern/Western Europe",              img:"./images/products/p032.jpg" },
-  // --- 12. Handok Healthcare ---
-  { id:"p033", companyId:12, type:"Raw Ingredient",  nameEn:"Theracurmin (High-Absorption Curcumin)",    category:"Anti-inflammation & Curcumin", market:"Southeast/East Asia, Middle East, Europe",          img:"./images/products/p033.jpg" },
-  { id:"p034", companyId:12, type:"Raw Ingredient",  nameEn:"Theracurmin Super (Enhanced Formula)",      category:"Anti-inflammation & Curcumin", market:"Southeast/East Asia, Middle East, Europe",          img:"./images/products/p034.jpg" },
-  // --- 13. BigSum Bio ---
-  { id:"p035", companyId:13, type:"Finished Product",nameEn:"SNOB Energy Charge",                        category:"Energy & Vitality",            market:"USA, Indonesia, Japan",                             img:"./images/products/p035.jpg" },
-  { id:"p036", companyId:13, type:"Finished Product",nameEn:"Re;Wake+",                                  category:"Energy & Vitality",            market:"USA, Singapore, Japan",                             img:"./images/products/p036.jpg" },
-  { id:"p037", companyId:13, type:"Finished Product",nameEn:"Re;neral (Mineral Supplement)",             category:"Energy & Vitality",            market:"USA, Singapore, Japan",                             img:"./images/products/p037.jpg" },
-  // --- 14. Kwangdong Health Bio ---
-  { id:"p038", companyId:14, type:"Raw Ingredient",  nameEn:"Morosil + Banaba Tablet Blend",             category:"Blood Sugar & Metabolic",      market:"Southeast Asia (Thailand, Vietnam)",                img:"./images/products/p038.jpg" },
-  { id:"p039", companyId:14, type:"Raw Ingredient",  nameEn:"Rosemary Grapefruit Electrolyte Water Mix", category:"Energy & Vitality",            market:"China, Southeast Asia (Thailand, Vietnam)",         img:"./images/products/p039.jpg" },
-  { id:"p040", companyId:14, type:"Raw Ingredient",  nameEn:"Iron Melting Powder",                       category:"Energy & Vitality",            market:"Southeast Asia (Thailand, Vietnam, India)",         img:"./images/products/p040.jpg" },
-  // --- 15. Amicogen ---
-  { id:"p041", companyId:15, type:"Raw Ingredient",  nameEn:"D-chiro-inositol",                          category:"Blood Sugar & Metabolic",      market:"USA, Central Asia, South America",                  img:"./images/products/p041.jpg" },
-  { id:"p042", companyId:15, type:"Raw Ingredient",  nameEn:"Fish Collagen Tripeptide",                  category:"Beauty & Skin",                market:"Japan, USA, Central/South America",                 img:"./images/products/p042.jpg" },
-  { id:"p043", companyId:15, type:"Raw Ingredient",  nameEn:"N-Acetylglucosamine (NAG)",                 category:"Bone & Joint",                 market:"Southeast Asia, Central/South America",             img:"./images/products/p043.jpg" },
-  // --- 16. Ilyang Pharmaceutical ---
-  { id:"p044", companyId:16, type:"Finished Product",nameEn:"Magnesium Feed Liquid",                     category:"Energy & Vitality",            market:"Vietnam",                                           img:"./images/products/p044.jpg" },
-  { id:"p045", companyId:16, type:"Finished Product",nameEn:"Vitamin C & B Drink",                       category:"Immunity & Antioxidant",       market:"Thailand",                                          img:"./images/products/p045.jpg" },
-  { id:"p046", companyId:16, type:"Finished Product",nameEn:"Daily Red Ginseng Extract",                 category:"Energy & Vitality",            market:"Russia",                                            img:"./images/products/p046.jpg" },
-  // --- 17. NVP Healthcare ---
-  { id:"p047", companyId:17, type:"Finished Product",nameEn:"NVP-1702",                                  category:"Gut Health & Probiotics",      market:"Southeast Asia (Thailand)",                         img:"./images/products/p047.jpg" },
-  { id:"p048", companyId:17, type:"Finished Product",nameEn:"NVP-1703",                                  category:"Gut Health & Probiotics",      market:"Southeast Asia (Thailand)",                         img:"./images/products/p048.jpg" },
-  { id:"p049", companyId:17, type:"Finished Product",nameEn:"NVP-1706",                                  category:"Gut Health & Probiotics",      market:"Southeast Asia (Thailand)",                         img:"./images/products/p049.jpg" },
-  // --- 18. Bitek ---
-  { id:"p050", companyId:18, type:"Raw Ingredient",  nameEn:"Kiwi Biotics (Prebiotic)",                  category:"Gut Health & Probiotics",      market:"Thailand, Indonesia, Taiwan, China",                img:"./images/products/p050.jpg" },
-  { id:"p051", companyId:18, type:"Finished Product",nameEn:"Comfortable World Para-Biotics",            category:"Gut Health & Probiotics",      market:"Thailand, Indonesia, Taiwan, China",                img:"./images/products/p051.jpg" },
-  { id:"p052", companyId:18, type:"Finished Product",nameEn:"Pure Glow Omega-7",                         category:"Beauty & Skin",                market:"Thailand, Indonesia, Taiwan, China",                img:"./images/products/p052.jpg" },
-  // --- 19. Cinnamon Lab ---
-  { id:"p053", companyId:19, type:"Finished Product",nameEn:"EA Hana Menopause",                         category:"Women's Health",               market:"Southeast Asia",                                    img:"./images/products/p053.jpg" },
-  { id:"p054", companyId:19, type:"Finished Product",nameEn:"EA Hana Plant-based Melatonin",             category:"Women's Health",               market:"Southeast Asia",                                    img:"./images/products/p054.jpg" },
-  { id:"p055", companyId:19, type:"Finished Product",nameEn:"EA Hana Immunity",                          category:"Immunity & Antioxidant",       market:"Southeast Asia",                                    img:"./images/products/p055.jpg" },
-  // --- 20. Hyundai Bioland ---
-  { id:"p056", companyId:20, type:"Raw Ingredient",  nameEn:"LAB Fermented Garlic Extract Powder",       category:"Immunity & Antioxidant",       market:"Southeast Asia (Thailand)",                         img:"./images/products/p056.jpg" },
-  { id:"p057", companyId:20, type:"Raw Ingredient",  nameEn:"Red Balloon Flower Concentrate",            category:"Immunity & Antioxidant",       market:"Southeast Asia (Thailand)",                         img:"./images/products/p057.jpg" },
-  { id:"p058", companyId:20, type:"Raw Ingredient",  nameEn:"Fermented Chestnut Shell Extract Powder",   category:"Immunity & Antioxidant",       market:"Southeast Asia (Thailand)",                         img:"./images/products/p058.jpg" },
-  // --- 21. Hecto Healthcare ---
-  { id:"p059", companyId:21, type:"Finished Product",nameEn:"OnlyRitual Slimming Cut Diet",              category:"Weight Management",            market:"East Asia, North America, Southeast Asia",          img:"./images/products/p059.jpg" },
-  { id:"p060", companyId:21, type:"Finished Product",nameEn:"OnlyRitual Reset V-Line",                   category:"Weight Management",            market:"East Asia, North America, Southeast Asia",          img:"./images/products/p060.jpg" },
-  { id:"p061", companyId:21, type:"Finished Product",nameEn:"OnlyRitual Healthy Green Cleanse",          category:"Weight Management",            market:"East Asia, North America, Southeast Asia",          img:"./images/products/p061.jpg" },
-  // --- 22. Wellfine ---
-  { id:"p062", companyId:22, type:"Finished Product",nameEn:"Deep-Rich BE Vin Chaud",                    category:"Energy & Vitality",            market:"East Asia (China→Vietnam, Thailand), Central Asia", img:"./images/products/p062.jpg" },
-  { id:"p063", companyId:22, type:"Finished Product",nameEn:"Deep-Rich Fruit Concentrate Aid 1.5kg",     category:"Energy & Vitality",            market:"East Asia, Central Asia",                           img:"./images/products/p063.jpg" },
-  { id:"p064", companyId:22, type:"Finished Product",nameEn:"Arginine Fit 6000+ & Black Maca Energy 2000+", category:"Energy & Vitality",         market:"East Asia, Central Asia",                           img:"./images/products/p064.jpg" },
-  // --- 23. HL Science ---
-  { id:"p065", companyId:23, type:"Finished Product",nameEn:"Skin Master Piestro",                       category:"Beauty & Skin",                market:"North America, Southeast Asia",                     img:"./images/products/p065.jpg" },
-  { id:"p066", companyId:23, type:"Finished Product",nameEn:"Skin Master Piestro Glow Jelly",            category:"Beauty & Skin",                market:"Southeast Asia",                                    img:"./images/products/p066.jpg" },
-  { id:"p067", companyId:23, type:"Finished Product",nameEn:"Skin Master Piestro For Men Jelly",         category:"Beauty & Skin",                market:"Southeast Asia, East Asia",                         img:"./images/products/p067.jpg" },
-  // --- 24. Nutri ---
-  { id:"p068", companyId:24, type:"Raw Ingredient",  nameEn:"Low-Molecular Collagen Peptide",            category:"Beauty & Skin",                market:"USA, Australia, Malaysia, Indonesia",               img:"./images/products/p068.jpg" },
-  { id:"p069", companyId:24, type:"Raw Ingredient",  nameEn:"Fingerroot (Krachai) Extract Powder",       category:"Blood Sugar & Metabolic",      market:"USA, Australia, Malaysia, Indonesia",               img:"./images/products/p069.jpg" },
-  // --- 25. CJ Wellcare ---
-  { id:"p070", companyId:25, type:"Finished Product",nameEn:"INNERB Glow Ampoule / Stick",               category:"Beauty & Skin",                market:"TBC",                                               img:"./images/products/p070.jpg" },
-  { id:"p071", companyId:25, type:"Finished Product",nameEn:"INNERB PDRN Rise",                          category:"Beauty & Skin",                market:"TBC",                                               img:"./images/products/p071.jpg" },
-  { id:"p072", companyId:25, type:"Finished Product",nameEn:"BYCORE Skin Immunity Probiotics",           category:"Beauty & Skin / Gut Health",   market:"TBC",                                               img:"./images/products/p072.jpg" },
+  {id:"p001",companyId:1,type:"Finished Product",nameEn:"Collagen Jelly Stick",oldCat:"Beauty & Skin",img:"./images/products/p001.jpg"},
+  {id:"p002",companyId:1,type:"Finished Product",nameEn:"Aloe Jelly Stick",oldCat:"Beauty & Skin",img:"./images/products/p002.jpg"},
+  {id:"p003",companyId:1,type:"Finished Product",nameEn:"Salmon Nasal Cartilage Extract",oldCat:"Bone & Joint",img:"./images/products/p003.jpg"},
+  {id:"p004",companyId:2,type:"Finished Product",nameEn:"Menopausal Women N 'Mijac Plus'",oldCat:"Women's Health",img:"./images/products/p004.jpg"},
+  {id:"p005",companyId:2,type:"Finished Product",nameEn:"Never Forget – PS & Ginkgo",oldCat:"Energy & Vitality",img:"./images/products/p005.jpg"},
+  {id:"p006",companyId:2,type:"Finished Product",nameEn:"Lab-biome C. butyricum Probiotics",oldCat:"Gut Health & Probiotics",img:"./images/products/p006.jpg"},
+  {id:"p007",companyId:3,type:"Finished Product",nameEn:"Tasty Propolis Supplement",oldCat:"Immunity & Antioxidant",img:"./images/products/p007.jpg"},
+  {id:"p008",companyId:3,type:"Finished Product",nameEn:"Tasty Chewable Propolis",oldCat:"Immunity & Antioxidant",img:"./images/products/p008.jpg"},
+  {id:"p009",companyId:3,type:"Raw Ingredient",nameEn:"Unibee Water-Soluble Propolis Powder 500",oldCat:"Immunity & Antioxidant",img:"./images/products/p009.jpg"},
+  {id:"p010",companyId:4,type:"Finished Product",nameEn:"Blood Sugar Probiotic HAC01",oldCat:"Blood Sugar & Metabolic",img:"./images/products/p010.jpg"},
+  {id:"p011",companyId:4,type:"Finished Product",nameEn:"Lysine 365",oldCat:"Energy & Vitality",img:"./images/products/p011.jpg"},
+  {id:"p012",companyId:5,type:"Finished Product",nameEn:"Jeongsam 6yr Red Ginseng 365 Stick – Energy",oldCat:"Energy & Vitality",img:"./images/products/p012.jpg"},
+  {id:"p013",companyId:5,type:"Finished Product",nameEn:"Jeongsam 6yr Red Ginseng 365 Stick",oldCat:"Energy & Vitality",img:"./images/products/p013.jpg"},
+  {id:"p014",companyId:5,type:"Finished Product",nameEn:"Jeongsam Red Ginseng & Pomegranate Stick",oldCat:"Energy & Vitality",img:"./images/products/p014.jpg"},
+  {id:"p015",companyId:6,type:"Finished Product",nameEn:"Custom Probiotics (B2B OEM)",oldCat:"Gut Health & Probiotics",img:"./images/products/p015.jpg"},
+  {id:"p016",companyId:6,type:"Finished Product",nameEn:"Custom Postbiotics (B2B OEM)",oldCat:"Gut Health & Probiotics",img:"./images/products/p016.jpg"},
+  {id:"p017",companyId:6,type:"Raw Ingredient",nameEn:"Probiotics Raw Material",oldCat:"Gut Health & Probiotics",img:"./images/products/p017.jpg"},
+  {id:"p018",companyId:7,type:"Raw Ingredient",nameEn:"MED-02 Probiotic Strain",oldCat:"Gut Health & Probiotics",img:"./images/products/p018.jpg"},
+  {id:"p019",companyId:7,type:"Raw Ingredient",nameEn:"MED-19 Probiotic Strain",oldCat:"Gut Health & Probiotics",img:"./images/products/p019.jpg"},
+  {id:"p020",companyId:7,type:"Finished Product",nameEn:"LABISEN Supreme Series",oldCat:"Gut Health & Probiotics",img:"./images/products/p020.jpg"},
+  {id:"p021",companyId:8,type:"Finished Product",nameEn:"Beautique Skin Collagen Signature",oldCat:"Beauty & Skin",img:"./images/products/p021.jpg"},
+  {id:"p022",companyId:8,type:"Finished Product",nameEn:"Cheonjiin Red Ginseng Slices",oldCat:"Energy & Vitality",img:"./images/products/p022.jpg"},
+  {id:"p023",companyId:8,type:"Finished Product",nameEn:"Cheonjiin Tayo Red Ginseng Stick – Apple",oldCat:"Energy & Vitality",img:"./images/products/p023.jpg"},
+  {id:"p024",companyId:9,type:"Raw Ingredient",nameEn:"Water-Soluble Propolis Extract",oldCat:"Immunity & Antioxidant",img:"./images/products/p024.jpg"},
+  {id:"p025",companyId:9,type:"Finished Product",nameEn:"Probee Propolis Emul Spray",oldCat:"Immunity & Antioxidant",img:"./images/products/p025.jpg"},
+  {id:"p026",companyId:9,type:"Finished Product",nameEn:"Probee Propolis Emul Stick",oldCat:"Immunity & Antioxidant",img:"./images/products/p026.jpg"},
+  {id:"p027",companyId:10,type:"Raw Ingredient",nameEn:"14 Developed Raw Ingredients",oldCat:"Gut Health & Probiotics",img:"./images/products/p027.jpg"},
+  {id:"p028",companyId:10,type:"Finished Product",nameEn:"CareBI·otics",oldCat:"Gut Health & Probiotics",img:"./images/products/p028.jpg"},
+  {id:"p029",companyId:10,type:"Finished Product",nameEn:"S-Class Grow-Up Calcium Jelly",oldCat:"Bone & Joint",img:"./images/products/p029.jpg"},
+  {id:"p030",companyId:11,type:"Raw Ingredient",nameEn:"Heat-treated Lactiplantibacillus",oldCat:"Gut Health & Probiotics",img:"./images/products/p030.jpg"},
+  {id:"p031",companyId:11,type:"Finished Product",nameEn:"Probiotics Health Supplement",oldCat:"Gut Health & Probiotics",img:"./images/products/p031.jpg"},
+  {id:"p032",companyId:11,type:"Raw Ingredient",nameEn:"Probiotics Raw Materials",oldCat:"Gut Health & Probiotics",img:"./images/products/p032.jpg"},
+  {id:"p033",companyId:12,type:"Raw Ingredient",nameEn:"Theracurmin (High-Absorption Curcumin)",oldCat:"Anti-inflammation & Curcumin",img:"./images/products/p033.jpg"},
+  {id:"p034",companyId:12,type:"Raw Ingredient",nameEn:"Theracurmin Super (Enhanced Formula)",oldCat:"Anti-inflammation & Curcumin",img:"./images/products/p034.jpg"},
+  {id:"p035",companyId:13,type:"Finished Product",nameEn:"SNOB Energy Charge",oldCat:"Energy & Vitality",img:"./images/products/p035.jpg"},
+  {id:"p036",companyId:13,type:"Finished Product",nameEn:"Re;Wake+",oldCat:"Energy & Vitality",img:"./images/products/p036.jpg"},
+  {id:"p037",companyId:13,type:"Finished Product",nameEn:"Re;neral (Mineral Supplement)",oldCat:"Energy & Vitality",img:"./images/products/p037.jpg"},
+  {id:"p038",companyId:14,type:"Raw Ingredient",nameEn:"Morosil + Banaba Tablet Blend",oldCat:"Blood Sugar & Metabolic",img:"./images/products/p038.jpg"},
+  {id:"p039",companyId:14,type:"Raw Ingredient",nameEn:"Rosemary Grapefruit Electrolyte Water Mix",oldCat:"Energy & Vitality",img:"./images/products/p039.jpg"},
+  {id:"p040",companyId:14,type:"Raw Ingredient",nameEn:"Iron Melting Powder",oldCat:"Energy & Vitality",img:"./images/products/p040.jpg"},
+  {id:"p041",companyId:15,type:"Raw Ingredient",nameEn:"D-chiro-inositol",oldCat:"Blood Sugar & Metabolic",img:"./images/products/p041.jpg"},
+  {id:"p042",companyId:15,type:"Raw Ingredient",nameEn:"Fish Collagen Tripeptide",oldCat:"Beauty & Skin",img:"./images/products/p042.jpg"},
+  {id:"p043",companyId:15,type:"Raw Ingredient",nameEn:"N-Acetylglucosamine (NAG)",oldCat:"Bone & Joint",img:"./images/products/p043.jpg"},
+  {id:"p044",companyId:16,type:"Finished Product",nameEn:"Magnesium Feed Liquid",oldCat:"Energy & Vitality",img:"./images/products/p044.jpg"},
+  {id:"p045",companyId:16,type:"Finished Product",nameEn:"Vitamin C & B Drink",oldCat:"Immunity & Antioxidant",img:"./images/products/p045.jpg"},
+  {id:"p046",companyId:16,type:"Finished Product",nameEn:"Daily Red Ginseng Extract",oldCat:"Energy & Vitality",img:"./images/products/p046.jpg"},
+  {id:"p047",companyId:17,type:"Finished Product",nameEn:"NVP-1702",oldCat:"Gut Health & Probiotics",img:"./images/products/p047.jpg"},
+  {id:"p048",companyId:17,type:"Finished Product",nameEn:"NVP-1703",oldCat:"Gut Health & Probiotics",img:"./images/products/p048.jpg"},
+  {id:"p049",companyId:17,type:"Finished Product",nameEn:"NVP-1706",oldCat:"Gut Health & Probiotics",img:"./images/products/p049.jpg"},
+  {id:"p050",companyId:18,type:"Raw Ingredient",nameEn:"Kiwi Biotics (Prebiotic)",oldCat:"Gut Health & Probiotics",img:"./images/products/p050.jpg"},
+  {id:"p051",companyId:18,type:"Finished Product",nameEn:"Comfortable World Para-Biotics",oldCat:"Gut Health & Probiotics",img:"./images/products/p051.jpg"},
+  {id:"p052",companyId:18,type:"Finished Product",nameEn:"Pure Glow Omega-7",oldCat:"Beauty & Skin",img:"./images/products/p052.jpg"},
+  {id:"p053",companyId:19,type:"Finished Product",nameEn:"EA Hana Menopause",oldCat:"Women's Health",img:"./images/products/p053.jpg"},
+  {id:"p054",companyId:19,type:"Finished Product",nameEn:"EA Hana Plant-based Melatonin",oldCat:"Women's Health",img:"./images/products/p054.jpg"},
+  {id:"p055",companyId:19,type:"Finished Product",nameEn:"EA Hana Immunity",oldCat:"Immunity & Antioxidant",img:"./images/products/p055.jpg"},
+  {id:"p056",companyId:20,type:"Raw Ingredient",nameEn:"LAB Fermented Garlic Extract Powder",oldCat:"Immunity & Antioxidant",img:"./images/products/p056.jpg"},
+  {id:"p057",companyId:20,type:"Raw Ingredient",nameEn:"Red Balloon Flower Concentrate",oldCat:"Immunity & Antioxidant",img:"./images/products/p057.jpg"},
+  {id:"p058",companyId:20,type:"Raw Ingredient",nameEn:"Fermented Chestnut Shell Extract Powder",oldCat:"Immunity & Antioxidant",img:"./images/products/p058.jpg"},
+  {id:"p059",companyId:21,type:"Finished Product",nameEn:"OnlyRitual Slimming Cut Diet",oldCat:"Weight Management",img:"./images/products/p059.jpg"},
+  {id:"p060",companyId:21,type:"Finished Product",nameEn:"OnlyRitual Reset V-Line",oldCat:"Weight Management",img:"./images/products/p060.jpg"},
+  {id:"p061",companyId:21,type:"Finished Product",nameEn:"OnlyRitual Healthy Green Cleanse",oldCat:"Weight Management",img:"./images/products/p061.jpg"},
+  {id:"p062",companyId:22,type:"Finished Product",nameEn:"Deep-Rich BE Vin Chaud",oldCat:"Energy & Vitality",img:"./images/products/p062.jpg"},
+  {id:"p063",companyId:22,type:"Finished Product",nameEn:"Deep-Rich Fruit Concentrate Aid 1.5kg",oldCat:"Energy & Vitality",img:"./images/products/p063.jpg"},
+  {id:"p064",companyId:22,type:"Finished Product",nameEn:"Arginine Fit 6000+ & Black Maca Energy 2000+",oldCat:"Energy & Vitality",img:"./images/products/p064.jpg"},
+  {id:"p065",companyId:23,type:"Finished Product",nameEn:"Skin Master Piestro",oldCat:"Beauty & Skin",img:"./images/products/p065.jpg"},
+  {id:"p066",companyId:23,type:"Finished Product",nameEn:"Skin Master Piestro Glow Jelly",oldCat:"Beauty & Skin",img:"./images/products/p066.jpg"},
+  {id:"p067",companyId:23,type:"Finished Product",nameEn:"Skin Master Piestro For Men Jelly",oldCat:"Beauty & Skin",img:"./images/products/p067.jpg"},
+  {id:"p068",companyId:24,type:"Raw Ingredient",nameEn:"Low-Molecular Collagen Peptide",oldCat:"Beauty & Skin",img:"./images/products/p068.jpg"},
+  {id:"p069",companyId:24,type:"Raw Ingredient",nameEn:"Fingerroot (Krachai) Extract Powder",oldCat:"Blood Sugar & Metabolic",img:"./images/products/p069.jpg"},
+  {id:"p070",companyId:25,type:"Finished Product",nameEn:"INNERB Glow Ampoule / Stick",oldCat:"Beauty & Skin",img:"./images/products/p070.jpg"},
+  {id:"p071",companyId:25,type:"Finished Product",nameEn:"INNERB PDRN Rise",oldCat:"Beauty & Skin",img:"./images/products/p071.jpg"},
+  {id:"p072",companyId:25,type:"Finished Product",nameEn:"BYCORE Skin Immunity Probiotics",oldCat:"Beauty & Skin / Gut Health",img:"./images/products/p072.jpg"},
 ];
 
-/* ═══════════════════════════════════════════════════════
-   HELPERS
-═══════════════════════════════════════════════════════ */
-function getCompany(id) { return companies.find(c => c.id === id); }
-function companyProducts(id) { return products.filter(p => p.companyId === id); }
-function categoryProducts(cat) { return products.filter(p => p.category === cat); }
+// 각 상품에 새 카테고리 적용
+products.forEach(p=>{ p.category = newCat(p.oldCat); });
 
-function catColor(cat) { return CAT_COLOR[cat] || "#888"; }
-function catBg(cat) {
-  const hex = catColor(cat);
-  return hex + "22";
-}
+function getCompany(id){ return companies.find(c=>c.id===id); }
+function companyProducts(id){ return products.filter(p=>p.companyId===id); }
 
-function catTagHTML(cat) {
-  return `<span class="cat-tag" style="background:${catColor(cat)}">${cat}</span>`;
-}
-
-function productCardHTML(p, showCompany=true) {
-  const comp = getCompany(p.companyId);
-  const typeTxt = typeLabel(p.type);
-  const badge = p.type === "Finished Product"
-    ? `<span class="product-type-badge badge-finished">${typeTxt}</span>`
-    : `<span class="product-type-badge badge-ingredient">${typeTxt}</span>`;
-  const compLine = showCompany ? `<div class="product-company">🏢 ${currentLang==='kr' ? comp.kr : comp.en}</div>` : '';
-  const pname = productName(p);
-  const catlabel = catLabel(p.category);
-  return `
-    <div class="product-card">
-      <div class="product-img">
-        <img src="${p.img}" alt="${pname}"
-          onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
-        <div class="img-placeholder" style="display:none">
-          <svg width="32" height="32" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
-            <rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/>
-            <polyline points="21 15 16 10 5 21"/>
-          </svg>
-          <span>${pname}</span>
-        </div>
-        ${badge}
+function productCardHTML(p, showCompany=true){
+  const comp=getCompany(p.companyId);
+  const typeTxt=currentLang==='kr'?(KR_TYPE[p.type]||p.type):p.type;
+  const badge=p.type==="Finished Product"
+    ?`<span class="product-type-badge badge-finished">${typeTxt}</span>`
+    :`<span class="product-type-badge badge-ingredient">${typeTxt}</span>`;
+  const compLine=showCompany?`<div class="product-company">🏢 ${currentLang==='kr'?comp.kr:comp.en}</div>`:'';
+  const pname=productName(p);
+  const catlabel=catLabel(p.category);
+  return `<div class="product-card">
+    <div class="product-img">
+      <img src="${p.img}" alt="${pname}" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
+      <div class="img-placeholder" style="display:none">
+        <svg width="32" height="32" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+        <span>${pname}</span>
       </div>
-      <div class="product-body">
-        <div class="product-cat-tag" style="background:${catColor(p.category)}">${CAT_ICON[p.category]||''} ${catlabel}</div>
-        <div class="product-name">${pname}</div>
-        ${compLine}
-        <div class="product-market"><strong>${marketLabel()}</strong> ${p.market}</div>
-      </div>
-    </div>`;
+      ${badge}
+    </div>
+    <div class="product-body">
+      <div class="product-cat-tag" style="background:${catColor(p.category)}">${catIcon(p.category)} ${catlabel}</div>
+      <div class="product-name">${pname}</div>
+      ${compLine}
+    </div>
+  </div>`;
 }
 
-/* ═══════════════════════════════════════════════════════
-   VIEWS
-═══════════════════════════════════════════════════════ */
-const views = ['home','companyView','categoryView','companyDetail','searchResults'];
-function showOnly(id) {
-  views.forEach(v => document.getElementById(v).style.display = 'none');
-  document.getElementById(id).style.display = 'block';
-  ['navHome','navCompany','navCategory'].forEach(n => document.getElementById(n).classList.remove('active'));
-  window.scrollTo({top:0, behavior:'smooth'});
+/* ═══════════════ VIEWS ═══════════════ */
+const allViews=['home','aboutView','companyView','productTypeView','companyDetail','searchResults'];
+function showOnly(id){
+  allViews.forEach(v=>{ document.getElementById(v).style.display='none'; });
+  document.getElementById(id).style.display='block';
+  ['navHome','navAbout','navCompany','navProductType'].forEach(n=>document.getElementById(n).classList.remove('active'));
+  window.scrollTo({top:0,behavior:'smooth'});
 }
+function setNavActive(id){ document.getElementById(id).classList.add('active'); }
 
-function setNavActive(id) { document.getElementById(id).classList.add('active'); }
+function showHome(){ showOnly('home'); setNavActive('navHome'); document.getElementById('searchInput').value=''; }
+function showAbout(){ showOnly('aboutView'); setNavActive('navAbout'); }
 
-function showHome() {
-  showOnly('home'); setNavActive('navHome');
-  document.getElementById('searchInput').value = '';
-  document.getElementById('catFilter').value = '';
-}
-
-function showCompanyView() {
+function showCompanyView(){
   showOnly('companyView'); setNavActive('navCompany');
   renderCompanyGrid(companies);
 }
 
-function renderCompanyGrid(list) {
-  const grid = document.getElementById('companyGrid');
-  document.getElementById('companyCount').textContent = t('companyCount', list.length);
-  grid.innerHTML = list.map(c => {
-    const cats = [...new Set(companyProducts(c.id).map(p=>p.category))];
-    const tags = cats.map(cat => `<span class="cat-tag" style="background:${catColor(cat)}">${catLabel(cat)}</span>`).join('');
-    const displayName = currentLang === 'kr' ? c.kr : c.en;
-    const subName    = currentLang === 'kr' ? c.en : c.kr;
-    return `
-      <div class="company-card" onclick="showCompanyDetail(${c.id})">
-        <div class="company-logo">
-          <img src="${c.logo}" alt="${c.en}"
-            onerror="this.parentElement.textContent='${c.en}'"/>
-        </div>
-        <div class="company-name-en">${displayName}</div>
-        <div class="company-name-kr">${subName}</div>
-        <div class="company-tags">${tags}</div>
-      </div>`;
+function renderCompanyGrid(list){
+  const grid=document.getElementById('companyGrid');
+  document.getElementById('companyCount').textContent=t('companyCount',list.length);
+  grid.innerHTML=list.map(c=>{
+    const cats=[...new Set(companyProducts(c.id).map(p=>p.category))];
+    const tags=cats.map(cat=>`<span class="cat-tag" style="background:${catColor(cat)}">${catLabel(cat)}</span>`).join('');
+    const dn=currentLang==='kr'?c.kr:c.en;
+    const sn=currentLang==='kr'?c.en:c.kr;
+    return `<div class="company-card" onclick="showCompanyDetail(${c.id})">
+      <div class="company-logo">
+        <img src="${c.logo}" alt="${c.en}" onerror="this.parentElement.textContent='${c.en}'"/>
+      </div>
+      <div class="company-name-en">${dn}</div>
+      <div class="company-name-kr">${sn}</div>
+      <div class="company-tags">${tags}</div>
+    </div>`;
   }).join('');
 }
 
-function showCategoryView() {
-  showOnly('categoryView'); setNavActive('navCategory');
-  const cats = [...new Set(products.map(p=>p.category))];
-  const grid = document.getElementById('categoryGrid');
-  grid.innerHTML = cats.map(cat => {
-    const count = categoryProducts(cat).length;
-    const compCount = new Set(categoryProducts(cat).map(p=>p.companyId)).size;
-    const color = catColor(cat);
-    const label = catLabel(cat);
-    const prodTxt = currentLang === 'kr' ? `${count}개 상품 · ${compCount}개 기업` : `${count} products · ${compCount} companies`;
-    return `
-      <div class="category-card" onclick="showCategoryDetail('${cat.replace(/'/g,"\\'")}')">
-        <div class="cat-icon-wrap" style="background:${color}22">
-          <span style="font-size:24px">${CAT_ICON[cat]||'📦'}</span>
-        </div>
-        <div class="cat-card-info">
-          <h3>${label}</h3>
-          <p>${prodTxt}</p>
-        </div>
-      </div>`;
-  }).join('');
+let currentTab='finished';
+function showProductTypeView(){
+  showOnly('productTypeView'); setNavActive('navProductType');
+  renderProductType(currentTab);
 }
 
-function showCompanyDetail(compId) {
+function switchTab(tab){
+  currentTab=tab;
+  document.getElementById('tabFinished').classList.toggle('active',tab==='finished');
+  document.getElementById('tabIngredient').classList.toggle('active',tab==='ingredient');
+  renderProductType(tab);
+}
+
+function renderProductType(tab){
+  const typeFilter=tab==='finished'?'Finished Product':'Raw Ingredient';
+  const filtered=products.filter(p=>p.type===typeFilter);
+  const cats=Object.keys(NEW_CATS);
+  let html='';
+  cats.forEach(cat=>{
+    const catProds=filtered.filter(p=>p.category===cat);
+    if(!catProds.length) return;
+    html+=`<div class="pt-cat-section">
+      <div class="pt-cat-header">
+        <div class="pt-cat-icon" style="background:${catColor(cat)}22">${catIcon(cat)}</div>
+        <div class="pt-cat-title">${catLabel(cat)}</div>
+        <div class="pt-cat-count">${catProds.length} ${currentLang==='kr'?'개':'products'}</div>
+      </div>
+      <div class="product-grid">${catProds.map(p=>productCardHTML(p,true)).join('')}</div>
+    </div>`;
+  });
+  document.getElementById('productTypeContent').innerHTML=html;
+}
+
+function showCompanyDetail(compId){
   showOnly('companyDetail'); setNavActive('navCompany');
-  const comp = getCompany(compId);
-  const prods = companyProducts(compId);
-  const cats = [...new Set(prods.map(p=>p.category))];
-  const displayName = currentLang === 'kr' ? comp.kr : comp.en;
-  const subName    = currentLang === 'kr' ? comp.en : comp.kr;
-
-  document.getElementById('detailTitle').textContent = displayName;
-  document.getElementById('detailCount').textContent = t('productCount', prods.length);
-
-  document.getElementById('detailHeader').innerHTML = `
+  const comp=getCompany(compId);
+  const prods=companyProducts(compId);
+  const cats=[...new Set(prods.map(p=>p.category))];
+  const dn=currentLang==='kr'?comp.kr:comp.en;
+  const sn=currentLang==='kr'?comp.en:comp.kr;
+  document.getElementById('detailTitle').textContent=dn;
+  document.getElementById('detailCount').textContent=t('productCount',prods.length);
+  document.getElementById('detailHeader').innerHTML=`
     <div class="company-detail-logo">
-      <img src="${comp.logo}" alt="${comp.en}"
-        onerror="this.parentElement.textContent='${comp.en}'"/>
+      <img src="${comp.logo}" alt="${comp.en}" onerror="this.parentElement.textContent='${comp.en}'"/>
     </div>
     <div class="company-detail-info">
-      <h2>${displayName}</h2>
-      <div class="kr-name">${subName}</div>
+      <h2>${dn}</h2>
+      <div class="kr-name">${sn}</div>
       <div class="detail-cats">${cats.map(c=>`<span class="cat-tag" style="background:${catColor(c)}">${catLabel(c)}</span>`).join('')}</div>
     </div>`;
-
-  document.getElementById('detailProducts').innerHTML = prods.map(p=>productCardHTML(p,false)).join('');
-  document.getElementById('detailBackBtn').textContent = t('backAll');
-  document.getElementById('detailBackBtn').onclick = showCompanyView;
+  document.getElementById('detailProducts').innerHTML=prods.map(p=>productCardHTML(p,false)).join('');
+  document.getElementById('detailBackBtn').textContent=t('backAll');
+  document.getElementById('detailBackBtn').onclick=showCompanyView;
 }
 
-function showCategoryDetail(cat) {
-  showOnly('companyDetail'); setNavActive('navCategory');
-  const prods = categoryProducts(cat);
-  const label = catLabel(cat);
-  document.getElementById('detailTitle').textContent = `${CAT_ICON[cat]||''} ${label}`;
-  document.getElementById('detailCount').textContent = t('productCount', prods.length);
-  document.getElementById('detailHeader').innerHTML = `
-    <div style="display:flex;align-items:center;gap:16px;width:100%">
-      <div class="cat-icon-wrap" style="background:${catColor(cat)}22;width:64px;height:64px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:28px;flex-shrink:0">
-        ${CAT_ICON[cat]||'📦'}
-      </div>
-      <div>
-        <div style="font-size:20px;font-weight:700;font-family:'Playfair Display',serif">${label}</div>
-        <div style="font-size:13px;color:var(--ink-soft);margin-top:4px">
-          ${t('productsFrom', prods.length, new Set(prods.map(p=>p.companyId)).size)}
-        </div>
-      </div>
-    </div>`;
-  document.getElementById('detailProducts').innerHTML = prods.map(p=>productCardHTML(p,true)).join('');
-  document.getElementById('detailBackBtn').textContent = t('backCat');
-  document.getElementById('detailBackBtn').onclick = showCategoryView;
-}
-
-/* ═══════════════════════════════════════════════════════
-   SEARCH & FILTER
-═══════════════════════════════════════════════════════ */
-function onSearch(q) {
-  if (!q.trim()) { clearSearch(); return; }
-  const ql = q.toLowerCase();
-  const results = products.filter(p => {
-    const comp = getCompany(p.companyId);
+/* ═══════════════ SEARCH ═══════════════ */
+function onSearch(q){
+  if(!q.trim()){ clearSearch(); return; }
+  const ql=q.toLowerCase();
+  const results=products.filter(p=>{
+    const comp=getCompany(p.companyId);
     return p.nameEn.toLowerCase().includes(ql)
-      || (KR_PRODUCT_NAME[p.id]||'').includes(ql)
-      || p.category.toLowerCase().includes(ql)
-      || (KR_CAT[p.category]||'').includes(ql)
-      || comp.en.toLowerCase().includes(ql)
-      || comp.kr.includes(ql)
-      || p.market.toLowerCase().includes(ql);
+      ||(KR_PRODUCT_NAME[p.id]||'').includes(ql)
+      ||p.category.toLowerCase().includes(ql)
+      ||comp.en.toLowerCase().includes(ql)||comp.kr.includes(ql);
   });
   showOnly('searchResults');
-  document.getElementById('searchTitle').textContent = t('searchTitle', q);
-  document.getElementById('searchCount').textContent = t('searchFound', results.length);
-  document.getElementById('searchGrid').innerHTML = results.length
-    ? results.map(p=>productCardHTML(p)).join('')
-    : `<div class="no-results">${t('noResults')}</div>`;
+  document.getElementById('searchTitle').textContent=t('searchTitle',q);
+  document.getElementById('searchCount').textContent=t('searchFound',results.length);
+  document.getElementById('searchGrid').innerHTML=results.length
+    ?results.map(p=>productCardHTML(p)).join('')
+    :`<div class="no-results">${t('noResults')}</div>`;
+}
+function clearSearch(){ document.getElementById('searchInput').value=''; showHome(); }
+
+/* ═══════════════ MODAL ═══════════════ */
+function openModal(){ document.getElementById('modalOverlay').classList.add('open'); document.body.style.overflow='hidden'; }
+function closeModal(){ document.getElementById('modalOverlay').classList.remove('open'); document.body.style.overflow=''; }
+function handleOverlayClick(e){ if(e.target===document.getElementById('modalOverlay')) closeModal(); }
+
+function switchFmTab(tab){
+  document.getElementById('fmTabA').classList.toggle('active',tab==='A');
+  document.getElementById('fmTabB').classList.toggle('active',tab==='B');
+  document.getElementById('fmCatA').style.display=tab==='A'?'block':'none';
+  document.getElementById('fmCatB').style.display=tab==='B'?'block':'none';
 }
 
-function onCatFilter(cat) {
-  if (!cat) { clearSearch(); return; }
-  showCategoryDetail(cat);
+function showToast(msg){
+  const t=document.getElementById('toast');
+  t.textContent=msg; t.classList.add('show');
+  setTimeout(()=>t.classList.remove('show'),3500);
 }
 
-function clearSearch() {
-  document.getElementById('searchInput').value = '';
-  document.getElementById('catFilter').value = '';
-  showHome();
+function submitForm(){
+  const name=document.getElementById('f_name').value.trim();
+  const title=document.getElementById('f_title').value;
+  const email=document.getElementById('f_email').value.trim();
+  const company=document.getElementById('f_company').value.trim();
+  const country=document.getElementById('f_country').value.trim();
+  const biztype=document.getElementById('f_biztype').value;
+  const revenue=document.getElementById('f_revenue').value;
+  const channel=document.getElementById('f_channel').value.trim();
+  const krexp=[...document.querySelectorAll('input[name=krexp]')].find(r=>r.checked)?.value||'';
+  const oem=[...document.querySelectorAll('input[name=oem]')].find(r=>r.checked)?.value||'';
+
+  const personalDomains=['gmail','yahoo','hotmail','naver','daum','outlook'];
+  if(!name||!title||!email||!company||!country||!biztype||!revenue||!channel||!krexp||!oem){
+    showToast('⚠️ Please fill in all required fields.'); return;
+  }
+  const emailDomain=email.split('@')[1]||'';
+  if(personalDomains.some(d=>emailDomain.toLowerCase().includes(d))){
+    showToast('⚠️ Please use your corporate email address.'); return;
+  }
+
+  const reg=[
+    document.getElementById('f_reg1').checked?'Import license':'',
+    document.getElementById('f_reg2').checked?'RA team':'',
+    document.getElementById('f_reg3').checked?'GMP/Halal facility':'',
+  ].filter(Boolean).join(', ')||'None selected';
+
+  const catsA=['Gut Health & Microbiome','Beauty-from-Within','Metabolic & Specialized Care','Immunity & Vitality'];
+  const selA=catsA.filter((_,i)=>document.getElementById(`fc_A${i+1}`).checked).join(', ')||'None';
+  const selB=catsA.filter((_,i)=>document.getElementById(`fc_B${i+1}`).checked).join(', ')||'None';
+  const nextSteps=['Technical Dossiers/COA','Physical Samples','FOB/CIF Quotation & MOQ','1:1 VIP Meeting in Seoul']
+    .filter((_,i)=>document.getElementById(`fn${i+1}`).checked).join(', ')||'None';
+
+  const body=`VIP MATCHMAKING APPLICATION — KHFF 2026\n\n`
+    +`=== SECTION 1: Buyer Identity ===\n`
+    +`Name: ${name}\nTitle: ${title}\nEmail: ${email}\nCompany: ${company}\nCountry: ${country}\n\n`
+    +`=== SECTION 2: Business Scale & Capability ===\n`
+    +`Business Type: ${biztype}\nAnnual Revenue: ${revenue}\nRegulatory Capability: ${reg}\n`
+    +`K-Product Experience: ${krexp}\nTarget Channel: ${channel}\n\n`
+    +`=== SECTION 3: Sourcing Intent ===\n`
+    +`Finished Goods Interest: ${selA}\nRaw Materials Interest: ${selB}\n`
+    +`OEM/ODM: ${oem}\nNext Step Request: ${nextSteps}`;
+
+  const subject=encodeURIComponent(`[VIP Matching Application] ${company} — ${country}`);
+  const bodyEnc=encodeURIComponent(body);
+  const mailto=`mailto:geonyeop.lim@tridge.com,andrew.kim@tridge.com?subject=${subject}&body=${bodyEnc}`;
+  window.location.href=mailto;
+  closeModal();
+  showToast('✅ Opening your email client… Application ready to send!');
 }
 
 /* init */
