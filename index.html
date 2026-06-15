@@ -26,10 +26,9 @@ img{max-width:100%;display:block}
 
 /* LOGO BAR */
 .logo-bar{background:#fff;padding:10px 32px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #eee}
-.logo-bar-left{display:flex;align-items:center;gap:12px}
+.logo-bar-left{display:flex;align-items:center;gap:16px}
 .logo-khff{height:44px;width:auto;object-fit:contain}
 .logo-divider{width:1px;height:32px;background:#e0e0e0;flex-shrink:0}
-.logo-by-tridge{font-size:11px;color:#1A1A2E;font-weight:500}
 .logo-tridge{height:18px;width:auto;object-fit:contain}
 .logo-cphi{height:32px;width:auto;object-fit:contain}
 @media(max-width:640px){.logo-bar{padding:8px 16px}.logo-khff{height:34px}.logo-cphi{height:26px}}
@@ -295,10 +294,7 @@ footer{background:#0D1B2A;border-top:1px solid rgba(255,255,255,.06);margin-top:
   <div class="logo-bar-left">
     <img class="logo-khff" src="./images/logo_khff.png" alt="KHFF"/>
     <div class="logo-divider"></div>
-    <div style="display:flex;align-items:center;gap:5px">
-      <span style="font-size:11px;font-weight:500;color:#1A1A2E">by</span>
-      <img class="logo-tridge" src="./images/logo_tridge.png" alt="Tridge"/>
-    </div>
+    <img class="logo-tridge" src="./images/logo_tridge.png" alt="Tridge"/>
   </div>
   <img class="logo-cphi" src="./images/logo_cphi.png" alt="CPHI"/>
 </div>
@@ -488,6 +484,7 @@ footer{background:#0D1B2A;border-top:1px solid rgba(255,255,255,.06);margin-top:
       <div class="pt-tab active" id="tabFinished" onclick="switchTab('finished')" data-en="Tab A · Finished Goods" data-kr="탭 A · 완제품">Tab A · Finished Goods</div>
       <div class="pt-tab" id="tabIngredient" onclick="switchTab('ingredient')" data-en="Tab B · Raw Materials" data-kr="탭 B · 원료">Tab B · Raw Materials</div>
     </div>
+    <div id="ptCatNav" style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:24px"></div>
     <div id="productTypeContent"></div>
   </div>
 
@@ -1326,7 +1323,14 @@ function showOnly(id){
   allViews.forEach(v=>{ document.getElementById(v).style.display='none'; });
   document.getElementById(id).style.display='block';
   ['navHome','navAbout','navCompany','navProductType'].forEach(n=>document.getElementById(n).classList.remove('active'));
-  window.scrollTo({top:0,behavior:'smooth'});
+  // 로고바 아래(topbar)로 스크롤
+  const topbar = document.getElementById('topbar');
+  if(topbar) {
+    const offset = topbar.getBoundingClientRect().top + window.scrollY - document.querySelector('.logo-bar').offsetHeight;
+    window.scrollTo({top: offset, behavior:'smooth'});
+  } else {
+    window.scrollTo({top:0, behavior:'smooth'});
+  }
 }
 function setNavActive(id){ document.getElementById(id).classList.add('active'); }
 
@@ -1376,11 +1380,22 @@ function renderProductType(tab){
   const typeFilter=tab==='finished'?'Finished Product':'Raw Ingredient';
   const filtered=products.filter(p=>p.type===typeFilter);
   const cats=Object.keys(NEW_CATS);
+
+  // 카테고리 네비 알약 렌더링
+  const catNav = document.getElementById('ptCatNav');
+  const availCats = cats.filter(cat => filtered.some(p=>p.category===cat));
+  catNav.innerHTML = availCats.map(cat=>`
+    <button onclick="scrollToCat('${tab}_${cat.replace(/[^a-z]/gi,'_')}')"
+      style="display:flex;align-items:center;gap:6px;padding:6px 14px;border-radius:20px;border:1px solid ${catColor(cat)};background:${catColor(cat)}15;color:${catColor(cat)};font-size:12px;font-weight:600;cursor:pointer;white-space:nowrap">
+      ${catIcon(cat)} ${catLabel(cat)}
+    </button>`).join('');
+
   let html='';
   cats.forEach(cat=>{
     const catProds=filtered.filter(p=>p.category===cat);
     if(!catProds.length) return;
-    html+=`<div class="pt-cat-section">
+    const anchorId=`${tab}_${cat.replace(/[^a-z]/gi,'_')}`;
+    html+=`<div class="pt-cat-section" id="${anchorId}">
       <div class="pt-cat-header">
         <div class="pt-cat-icon" style="background:${catColor(cat)}22">${catIcon(cat)}</div>
         <div class="pt-cat-title">${catLabel(cat)}</div>
@@ -1390,6 +1405,15 @@ function renderProductType(tab){
     </div>`;
   });
   document.getElementById('productTypeContent').innerHTML=html;
+}
+
+function scrollToCat(anchorId){
+  const el = document.getElementById(anchorId);
+  if(!el) return;
+  const topbarH = document.getElementById('topbar').offsetHeight;
+  const logoBarH = document.querySelector('.logo-bar').offsetHeight;
+  const y = el.getBoundingClientRect().top + window.scrollY - topbarH - logoBarH - 16;
+  window.scrollTo({top: y, behavior:'smooth'});
 }
 
 function showCompanyDetail(compId){
