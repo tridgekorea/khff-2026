@@ -1323,14 +1323,16 @@ function showOnly(id){
   allViews.forEach(v=>{ document.getElementById(v).style.display='none'; });
   document.getElementById(id).style.display='block';
   ['navHome','navAbout','navCompany','navProductType'].forEach(n=>document.getElementById(n).classList.remove('active'));
-  // 로고바 아래(topbar)로 스크롤
-  const topbar = document.getElementById('topbar');
-  if(topbar) {
-    const offset = topbar.getBoundingClientRect().top + window.scrollY - document.querySelector('.logo-bar').offsetHeight;
-    window.scrollTo({top: offset, behavior:'smooth'});
-  } else {
-    window.scrollTo({top:0, behavior:'smooth'});
-  }
+  // 홈화면이면 맨 위, 나머지는 히어로 아래 컨텐츠 영역으로 스크롤
+  setTimeout(()=>{
+    if(id === 'home'){
+      window.scrollTo({top:0, behavior:'smooth'});
+    } else {
+      const hero = document.getElementById('hero');
+      const heroBottom = hero ? hero.offsetTop + hero.offsetHeight : 0;
+      window.scrollTo({top: heroBottom, behavior:'smooth'});
+    }
+  }, 50);
 }
 function setNavActive(id){ document.getElementById(id).classList.add('active'); }
 
