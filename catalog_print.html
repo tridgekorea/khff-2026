@@ -914,7 +914,7 @@ function renderCompany(comp, pg){
     <div class="pg-body">
       <div class="company-hero-card">
         <div class="chc-logo">
-          <img src="./images/logo/${logoFile}" alt="${comp.en}" onerror="this.style.display='none';this.parentElement.innerHTML='<span style=\"font-size:11px;font-weight:700;color:var(--navy);text-align:center;padding:4px\">${comp.en}</span>'"/>
+          <img src="./images/logo/${logoFile}" alt="${comp.en}" style="width:100%;height:100%;object-fit:contain" onerror="this.style.opacity='0'"/>
         </div>
         <div class="chc-info">
           <div class="chc-en">${comp.en}</div>
