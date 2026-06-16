@@ -52,6 +52,8 @@ img{max-width:100%;display:block}
 .lang-divider{width:1px;height:16px;background:rgba(255,255,255,.15)}
 .vip-btn{display:flex;align-items:center;gap:6px;padding:8px 16px;border-radius:8px;background:var(--green);color:#fff;font-size:12px;font-weight:700;letter-spacing:.04em;transition:opacity .2s;flex-shrink:0;white-space:nowrap}
 .vip-btn:hover{opacity:.85}
+.catalog-btn{display:flex;align-items:center;gap:6px;padding:8px 16px;border-radius:8px;background:transparent;color:#fff;font-size:12px;font-weight:700;letter-spacing:.04em;transition:all .2s;flex-shrink:0;white-space:nowrap;border:1.5px solid rgba(255,255,255,.3);cursor:pointer}
+.catalog-btn:hover{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.6)}
 
 /* HERO */
 #hero{background:var(--ink);padding:72px 32px 64px;text-align:center;position:relative;overflow:hidden}
@@ -325,6 +327,10 @@ footer{background:#0D1B2A;border-top:1px solid rgba(255,255,255,.06);margin-top:
     <button class="vip-btn" onclick="openModal()">
       <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
       REQUEST VIP MATCHING
+    </button>
+    <button class="catalog-btn" onclick="window.open('./catalog_print.html','_blank')">
+      <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="18" x2="12" y2="12"/><line x1="9" y1="15" x2="15" y2="15"/></svg>
+      DOWNLOAD CATALOG
     </button>
   </div>
 </div>
