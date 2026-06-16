@@ -118,25 +118,43 @@ body{font-family:'Inter',sans-serif;background:#e8e8e8;color:var(--ink);-webkit-
 /* ══════════════════════════════════
    TABLE OF CONTENTS
 ══════════════════════════════════ */
-.toc-page .pg-body{padding:20px 24px 48px}
+.toc-page .pg-body{padding:24px 28px 52px}
 .toc-section-title{
-  font-size:11px;font-weight:700;color:var(--ink-soft);
-  letter-spacing:.1em;text-transform:uppercase;
-  margin-bottom:12px;padding-bottom:6px;
+  font-size:10px;font-weight:700;color:var(--ink-soft);
+  letter-spacing:.12em;text-transform:uppercase;
+  margin-bottom:10px;padding-bottom:6px;
   border-bottom:1px solid var(--border);
 }
-.toc-grid{display:grid;grid-template-columns:1fr 1fr;gap:3px;margin-bottom:20px}
+.toc-cat-group{margin-bottom:22px}
+.toc-cat-heading{
+  display:flex;align-items:center;gap:10px;
+  margin-bottom:8px;
+}
+.toc-cat-icon{font-size:20px;line-height:1}
+.toc-cat-label{
+  font-family:'Playfair Display',serif;
+  font-size:15px;font-weight:700;color:var(--navy);
+}
+.toc-cat-bar{flex:1;height:1px;background:var(--border);margin-left:4px}
 .toc-item{
   display:flex;align-items:center;justify-content:space-between;
-  padding:6px 10px;border-radius:6px;
-  font-size:10px;color:var(--ink);
-  transition:background .15s;
+  padding:9px 14px 9px 18px;
+  border-left:3px solid transparent;
+  border-bottom:1px solid var(--border);
 }
-.toc-item:nth-child(odd){background:var(--bg)}
-.toc-company-name{font-weight:600;display:flex;align-items:center;gap:6px}
-.toc-cats{display:flex;gap:3px}
+.toc-item:last-child{border-bottom:none}
+.toc-item:hover{background:var(--bg)}
+.toc-company-name{
+  font-size:13px;font-weight:600;color:var(--ink);
+  display:flex;align-items:center;gap:8px;
+}
+.toc-company-kr{font-size:10px;color:var(--ink-soft);font-weight:400}
+.toc-dots-row{display:flex;align-items:center;gap:14px}
 .toc-cat-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
-.toc-pagenum{font-size:9px;color:var(--ink-soft);font-weight:600;flex-shrink:0}
+.toc-pagenum{
+  font-size:13px;color:var(--ink-soft);font-weight:700;
+  flex-shrink:0;min-width:28px;text-align:right;
+}
 
 /* ══════════════════════════════════
    ABOUT PAGE
@@ -190,9 +208,10 @@ body{font-family:'Inter',sans-serif;background:#e8e8e8;color:var(--ink);-webkit-
 }
 .chc-logo{
   width:72px;height:72px;border-radius:10px;
-  background:rgba(255,255,255,.08);
+  background:#ffffff;
   display:flex;align-items:center;justify-content:center;
   flex-shrink:0;overflow:hidden;position:relative;z-index:1;
+  box-shadow:0 0 0 1px rgba(255,255,255,.15);
 }
 .chc-logo img{width:100%;height:100%;object-fit:contain;padding:6px}
 .chc-info{position:relative;z-index:1}
@@ -234,32 +253,73 @@ body{font-family:'Inter',sans-serif;background:#e8e8e8;color:var(--ink);-webkit-
 .cp-name{font-size:10px;font-weight:700;color:var(--navy);line-height:1.3}
 
 /* ══════════════════════════════════
+   CATEGORY SECTION COVER
+══════════════════════════════════ */
+.cat-cover{
+  display:flex;flex-direction:column;
+  align-items:center;justify-content:center;
+  text-align:center;min-height:297mm;
+  position:relative;overflow:hidden;
+}
+.cat-cover-inner{position:relative;z-index:1;padding:40px;max-width:480px}
+.cat-cover-icon{font-size:72px;margin-bottom:24px;display:block}
+.cat-cover-section{font-size:11px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;margin-bottom:12px;opacity:.6}
+.cat-cover-name{font-family:'Playfair Display',serif;font-size:42px;font-weight:700;line-height:1.1;margin-bottom:16px}
+.cat-cover-sub{font-size:12px;line-height:1.8;opacity:.55;margin-bottom:36px}
+.cat-cover-stats{display:flex;gap:0;border-radius:12px;overflow:hidden;border:1px solid rgba(255,255,255,.15);margin-bottom:0}
+.cat-cover-stat{padding:14px 28px;text-align:center;border-right:1px solid rgba(255,255,255,.1)}
+.cat-cover-stat:last-child{border-right:none}
+.ccs-num{font-size:26px;font-weight:700;line-height:1}
+.ccs-label{font-size:9px;opacity:.4;letter-spacing:.08em;text-transform:uppercase;margin-top:3px}
+.cat-cover-tridge{position:absolute;bottom:20px;right:20px;z-index:1;display:flex;align-items:center;gap:6px}
+.cat-cover-tridge span{font-size:9px;opacity:.2}
+
+/* ══════════════════════════════════
    PRODUCT PAGES
 ══════════════════════════════════ */
-.products-page .pg-body{padding:18px 20px 48px}
-.products-3-grid{display:grid;grid-template-columns:1fr;gap:16px}
+.products-page .pg-body{padding:14px 20px 44px}
+.products-4-grid{display:grid;grid-template-columns:1fr;gap:11px}
 .prod-card{
-  display:grid;grid-template-columns:120px 1fr;gap:14px;
+  display:grid;grid-template-columns:100px 1fr;gap:12px;
   background:#fff;border:1px solid var(--border);
-  border-radius:10px;overflow:hidden;padding:0;
+  border-radius:9px;overflow:hidden;padding:0;
 }
-.prod-img-col{background:var(--bg);overflow:hidden}
-.prod-img-col img{width:120px;height:120px;object-fit:cover}
+.prod-img-col{background:var(--bg);overflow:hidden;flex-shrink:0}
+.prod-img-col img{width:100px;height:100px;object-fit:cover}
 .prod-img-placeholder{
-  width:120px;height:120px;display:flex;align-items:center;
+  width:100px;height:100px;display:flex;align-items:center;
   justify-content:center;flex-direction:column;gap:4px;
   font-size:9px;color:#ccc;text-align:center;padding:8px;
 }
-.prod-info-col{padding:12px 14px 12px 0;display:flex;flex-direction:column;gap:7px}
-.prod-eyebrow{display:flex;align-items:center;gap:6px;flex-wrap:wrap}
-.prod-cat-tag{font-size:9px;font-weight:700;padding:2px 8px;border-radius:7px;color:#fff}
-.prod-type{font-size:9px;padding:2px 8px;border-radius:7px}
-.prod-name{font-size:13px;font-weight:700;color:var(--navy);line-height:1.3}
-.prod-company{font-size:10px;color:var(--ink-soft)}
+.prod-info-col{padding:9px 12px 9px 0;display:flex;flex-direction:column;gap:5px}
+.prod-eyebrow{display:flex;align-items:center;gap:5px;flex-wrap:wrap}
+.prod-cat-tag{font-size:8px;font-weight:700;padding:2px 7px;border-radius:6px;color:#fff}
+.prod-type{font-size:8px;padding:2px 7px;border-radius:6px}
+.prod-name{font-size:12px;font-weight:700;color:var(--navy);line-height:1.25}
+.prod-company{font-size:9px;color:var(--ink-soft)}
 .prod-divider{height:1px;background:var(--border)}
-.prod-desc{font-size:10px;color:var(--ink-mid);line-height:1.65}
-.prod-ingredients{display:flex;flex-wrap:wrap;gap:4px}
-.ingr-chip{font-size:9px;padding:2px 7px;border-radius:7px;border:1px solid var(--border);color:var(--ink-soft)}
+.prod-desc{font-size:9px;color:var(--ink-mid);line-height:1.6;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.prod-ingredients{display:flex;flex-wrap:wrap;gap:3px}
+.ingr-chip{font-size:8px;padding:2px 6px;border-radius:6px;border:1px solid var(--border);color:var(--ink-soft)}
+
+/* ══════════════════════════════════
+   COMPANY PAGE — PRODUCT DETAIL ROWS
+══════════════════════════════════ */
+.company-prod-rows{display:flex;flex-direction:column;gap:8px;margin-top:10px}
+.company-prod-row{
+  display:grid;grid-template-columns:80px 1fr;gap:10px;
+  background:#fff;border:1px solid var(--border);
+  border-radius:8px;overflow:hidden;
+}
+.cpr-img{background:var(--bg);flex-shrink:0}
+.cpr-img img{width:80px;height:80px;object-fit:cover;display:block}
+.cpr-img-ph{width:80px;height:80px;display:flex;align-items:center;justify-content:center;font-size:18px;color:#ddd}
+.cpr-info{padding:8px 10px 8px 0;display:flex;flex-direction:column;gap:4px}
+.cpr-eyebrow{display:flex;align-items:center;gap:5px}
+.cpr-cat{font-size:8px;font-weight:700;padding:2px 6px;border-radius:5px;color:#fff}
+.cpr-type{font-size:8px;padding:2px 6px;border-radius:5px}
+.cpr-name{font-size:11px;font-weight:700;color:var(--navy);line-height:1.25}
+.cpr-desc{font-size:9px;color:var(--ink-mid);line-height:1.55;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
 
 /* ══════════════════════════════════
    BACK COVER
@@ -488,7 +548,7 @@ const products = [
   {id:"p064",companyId:22,type:"Finished Product",nameEn:"Arginine Fit 6000+ & Black Maca Energy 2000+",oldCat:"Energy & Vitality",img:"./images/products/p064.jpg"},
   {id:"p065",companyId:23,type:"Finished Product",nameEn:"Skin Master Piestro",oldCat:"Beauty & Skin",img:"./images/products/p065.jpg"},
   {id:"p066",companyId:23,type:"Finished Product",nameEn:"Skin Master Piestro Glow Jelly",oldCat:"Beauty & Skin",img:"./images/products/p066.jpg"},
-  {id:"p067",companyId:23,type:"Finished Product",nameEn:"Skin Master Piestro For Men Jelly",oldCat:"Beauty & Skin",img:"./images/products/p067.jpg"},
+  {id:"p067",companyId:23,type:"Finished Product",nameEn:"Skin Master Piestro For Woman Jelly",oldCat:"Beauty & Skin",img:"./images/products/p067.jpg"},
   {id:"p068",companyId:24,type:"Raw Ingredient",nameEn:"Low-Molecular Collagen Peptide",oldCat:"Beauty & Skin",img:"./images/products/p068.jpg"},
   {id:"p069",companyId:24,type:"Raw Ingredient",nameEn:"Fingerroot (Krachai) Extract Powder",oldCat:"Blood Sugar & Metabolic",img:"./images/products/p069.jpg"},
   {id:"p070",companyId:25,type:"Finished Product",nameEn:"INNERB Glow Ampoule / Stick",oldCat:"Beauty & Skin",img:"./images/products/p070.jpg"},
@@ -515,6 +575,7 @@ const PRODUCT_DETAIL = {
   "p010":{desc:"Korea's first individually approved probiotic for blood sugar management. L. plantarum HAC01 has passed Korea MFDS human clinical trials demonstrating reduction in HbA1c and suppression of postprandial blood glucose elevation. Winner of the 2023 Patent Technology Award, 2024 Nutra Ingredients Asia Award, and 2025 Jang Yeong-sil Award. Self-Affirmed GRAS (USA) and KMF Halal certified. MOQ: 10,000 sets.",ingredients:["Lactiplantibacillus plantarum HAC01 (190mg/capsule)","Prebiotic","Capsule Shell"]},
   "p011":{desc:"Korea's first individually approved probiotic strain for body fat reduction. L. plantarum ATG-K2 has passed Korea MFDS human clinical trials confirming reduction in body fat mass and body fat percentage. Supports microbiome-based weight management with one convenient capsule per day. MOQ: 10,000 sets.",ingredients:["Lactiplantibacillus plantarum ATG-K2 (190mg/capsule)","Prebiotic","Capsule Shell"]},
 
+  "p011":{desc:"Lysine 365 is AtoGen's daily amino acid supplement featuring L-Lysine — an essential amino acid critical for protein synthesis, collagen formation, and immune support. Designed for consumers seeking convenient daily amino acid nutrition. One capsule per day format, GMP certified. Lysine supports calcium absorption, growth and tissue repair, and may aid antiviral immune response.",ingredients:["L-Lysine HCl","Vitamin C","Vitamin B6","Zinc"]},
   // --- 5. NATURE GARDEN (네이처가든 / 휴럼) ---
   "p012":{desc:"A premium energy-boosting red ginseng stick made from 6-year-old Korean Jeongsam (cultivated ginseng). Contains 19 traditional herbal ingredients with 100% Korean red ginseng concentrate. Generous 100-stick package designed for export and duty-free markets. Available on Alibaba & AliExpress.",ingredients:["100% 6-Year Korean Red Ginseng Concentrate","19 Traditional Herbal Ingredients","Ginsenosides"]},
   "p013":{desc:"A classic premium Korean red ginseng extract stick from 6-year-old Jeongsam. Contains 7mg ginsenosides per serving with 13 herbal ingredients. Uses Korean 'Jinsam', rich in the energy of the earth. Eco-friendly packaging. GMP certified manufacturing by Hyuram.",ingredients:["6-Year Korean Red Ginseng Extract (Jinsam)","Ginsenosides 7mg/stick","13 Herbal Ingredients"]},
@@ -661,9 +722,9 @@ function renderCover(){
   return `<div class="page cover">
     <div class="cover-inner">
       <div class="cover-logos">
-        <img class="c-khff" src="${KHFF_SRC}" alt="KHFF"/>
+        <img class="c-khff" src="${KHFF_SRC}" alt="KHFF" style="background:#fff;border-radius:8px;padding:6px 10px;height:52px;"/>
         <div class="cover-logo-divider"></div>
-        <img class="c-cphi" src="${CPHI_SRC}" alt="CPHI Korea"/>
+        <img class="c-cphi" src="${CPHI_SRC}" alt="CPHI Korea" style="background:#fff;border-radius:8px;padding:6px 10px;height:52px;"/>
       </div>
       <div class="cover-badge">🇰🇷 Official VIP Buyer Catalog</div>
       <div class="cover-year">2026</div>
@@ -695,45 +756,91 @@ function renderCover(){
 
 // ── TABLE OF CONTENTS ──
 function renderTOC(companyStartPage){
-  const items = companies.map((comp,i)=>{
+  const catOrder = [
+    "Gut Health & Microbiome",
+    "Beauty-from-Within",
+    "Metabolic & Specialized Care",
+    "Immunity & Vitality"
+  ];
+
+  // Map each company to its primary category (first product's category)
+  const compWithCat = companies.map((comp, i) => {
     const prods = companyProducts(comp.id);
-    const cats = [...new Set(prods.map(p=>p.category))];
-    const dots = cats.map(c=>`<span class="toc-cat-dot" style="background:${catColor(c)}"></span>`).join('');
-    return `<div class="toc-item">
-      <div class="toc-company-name">
-        ${dots}
-        ${comp.en}
+    const cats = [...new Set(prods.map(p => p.category))];
+    return { comp, i, cats, primaryCat: cats[0] };
+  });
+
+  // Group by category order (a company may appear in multiple cats — use first match)
+  const placed = new Set();
+  const groups = catOrder.map(cat => {
+    const members = compWithCat.filter(x => {
+      if (placed.has(x.comp.id)) return false;
+      if (x.cats.includes(cat)) { placed.add(x.comp.id); return true; }
+      return false;
+    });
+    return { cat, members };
+  });
+  // Any unplaced (edge case)
+  const rest = compWithCat.filter(x => !placed.has(x.comp.id));
+
+  const groupsHtml = groups.map(({ cat, members }) => {
+    if (!members.length) return '';
+    const color = catColor(cat);
+    const icon = catIcon(cat);
+    const rows = members.map(({ comp, i }) => {
+      const pg = companyStartPage + i;
+      const dots = [...new Set(companyProducts(comp.id).map(p=>p.category))]
+        .map(c2 => `<span class="toc-cat-dot" style="background:${catColor(c2)}"></span>`).join('');
+      return `<div class="toc-item" style="border-left-color:${color}">
+        <div class="toc-company-name">
+          ${comp.en}
+          <span class="toc-company-kr">${comp.kr}</span>
+        </div>
+        <div class="toc-dots-row">
+          ${dots}
+          <span class="toc-pagenum">p.${pg}</span>
+        </div>
+      </div>`;
+    }).join('');
+    return `<div class="toc-cat-group">
+      <div class="toc-cat-heading">
+        <span class="toc-cat-icon">${icon}</span>
+        <span class="toc-cat-label" style="color:${color}">${cat}</span>
+        <div class="toc-cat-bar"></div>
       </div>
-      <span class="toc-pagenum">${companyStartPage + i}</span>
+      ${rows}
     </div>`;
   }).join('');
+
+  // Product catalog section — compute start page
+  const PRODUCT_SECTION_PG = companyStartPage + companies.length + 1; // +1 for first cat cover
 
   return `<div class="page toc-page">
     ${header(2)}
     <div class="pg-body">
-      <div style="margin-bottom:20px">
-        <div style="font-family:'Playfair Display',serif;font-size:26px;font-weight:700;color:var(--navy);margin-bottom:4px">Table of Contents</div>
+      <div style="margin-bottom:24px">
+        <div style="font-family:'Playfair Display',serif;font-size:28px;font-weight:700;color:var(--navy);margin-bottom:4px">Table of Contents</div>
         <div style="font-size:11px;color:var(--ink-soft)">2026 KHFF Supplier Showcase · 25 Companies · 72 Products</div>
       </div>
 
-      <div class="toc-section-title">Section 1 — About This Event</div>
-      <div style="display:flex;justify-content:space-between;padding:6px 10px;background:var(--bg);border-radius:6px;font-size:10px;margin-bottom:16px">
-        <span>Event Overview · VIP Program · How It Works</span>
-        <span class="toc-pagenum">3</span>
+      <div class="toc-section-title" style="margin-bottom:14px">Section 1 — About This Event</div>
+      <div style="display:flex;align-items:center;justify-content:space-between;padding:10px 14px 10px 18px;border-left:3px solid var(--green);border-bottom:1px solid var(--border);margin-bottom:22px">
+        <span style="font-size:13px;font-weight:600;color:var(--ink)">Event Overview · VIP Program · How It Works</span>
+        <span style="font-size:13px;font-weight:700;color:var(--ink-soft)">p.3</span>
       </div>
 
-      <div class="toc-section-title">Section 2 — Company Profiles (25 Companies)</div>
-      <div class="toc-grid">${items}</div>
+      <div class="toc-section-title" style="margin-bottom:14px">Section 2 — Company Profiles</div>
+      ${groupsHtml}
 
-      <div class="toc-section-title">Section 3 — Product Catalog (72 Products)</div>
-      <div style="display:flex;justify-content:space-between;padding:6px 10px;background:var(--bg);border-radius:6px;font-size:10px;margin-bottom:16px">
-        <span style="display:flex;align-items:center;gap:8px">
-          <span style="display:flex;align-items:center;gap:4px"><span class="toc-cat-dot" style="background:#4A90D9"></span>Gut Health & Microbiome</span>
-          <span style="display:flex;align-items:center;gap:4px"><span class="toc-cat-dot" style="background:#E8788A"></span>Beauty-from-Within</span>
-          <span style="display:flex;align-items:center;gap:4px"><span class="toc-cat-dot" style="background:#E6A817"></span>Metabolic</span>
-          <span style="display:flex;align-items:center;gap:4px"><span class="toc-cat-dot" style="background:#27AE60"></span>Immunity</span>
-        </span>
-        <span class="toc-pagenum">${companyStartPage + 25}</span>
+      <div class="toc-section-title" style="margin-bottom:10px;margin-top:4px">Section 3 — Product Catalog</div>
+      <div style="display:flex;align-items:center;justify-content:space-between;padding:10px 14px 10px 18px;border-left:3px solid #888;border-bottom:1px solid var(--border)">
+        <div style="display:flex;align-items:center;gap:14px">
+          <span style="display:flex;align-items:center;gap:5px;font-size:12px;color:var(--ink-mid)"><span class="toc-cat-dot" style="background:#4A90D9"></span>Gut Health</span>
+          <span style="display:flex;align-items:center;gap:5px;font-size:12px;color:var(--ink-mid)"><span class="toc-cat-dot" style="background:#E8788A"></span>Beauty</span>
+          <span style="display:flex;align-items:center;gap:5px;font-size:12px;color:var(--ink-mid)"><span class="toc-cat-dot" style="background:#E6A817"></span>Metabolic</span>
+          <span style="display:flex;align-items:center;gap:5px;font-size:12px;color:var(--ink-mid)"><span class="toc-cat-dot" style="background:#27AE60"></span>Immunity</span>
+        </div>
+        <span style="font-size:13px;font-weight:700;color:var(--ink-soft)">p.${PRODUCT_SECTION_PG}</span>
       </div>
     </div>
     ${footer()}
@@ -794,18 +901,24 @@ function renderCompany(comp, pg){
   const catBadges = cats.map(c=>`<span class="chc-cat" style="background:${catColor(c)}">${catIcon(c)} ${c}</span>`).join('');
   const certBadges = (comp.badges||[]).map(b=>`<span class="cert-badge">${b}</span>`).join('');
   const logoFile = comp.logo ? comp.logo.split('/').pop() : '';
-  
-  const prodCards = prods.slice(0,6).map(p=>{
+
+  // Product detail rows (all products with image + description)
+  const prodRows = prods.map(p=>{
+    const detail = PRODUCT_DETAIL[p.id]||{desc:'Details available upon request.',ingredients:[]};
     const type = p.type==="Finished Product";
-    return `<div class="cp-card">
-      <div class="cp-img">
-        <img src="./images/products/${p.id}.jpg" alt="${p.nameEn}" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
-        <div class="cp-img-placeholder" style="display:none">📦<span>${p.nameEn}</span></div>
-        <span class="cp-type-badge ${type?'badge-f':'badge-r'}">${type?'Finished':'Raw'}</span>
+    const descShort = detail.desc.length > 160 ? detail.desc.slice(0,160)+'…' : detail.desc;
+    return `<div class="company-prod-row">
+      <div class="cpr-img">
+        <img src="./images/products/${p.id}.jpg" alt="${p.nameEn}" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" style="width:80px;height:80px;object-fit:cover;display:block"/>
+        <div class="cpr-img-ph" style="display:none">📦</div>
       </div>
-      <div class="cp-body">
-        <span class="cp-cat" style="background:${catColor(p.category)}">${catIcon(p.category)}</span>
-        <div class="cp-name">${p.nameEn}</div>
+      <div class="cpr-info">
+        <div class="cpr-eyebrow">
+          <span class="cpr-cat" style="background:${catColor(p.category)}">${catIcon(p.category)} ${p.category}</span>
+          <span class="cpr-type ${type?'badge-f':'badge-r'}">${type?'Finished':'Raw'}</span>
+        </div>
+        <div class="cpr-name">${p.nameEn}</div>
+        <div class="cpr-desc">${descShort}</div>
       </div>
     </div>`;
   }).join('');
@@ -815,7 +928,7 @@ function renderCompany(comp, pg){
     <div class="pg-body">
       <div class="company-hero-card">
         <div class="chc-logo">
-          <img src="./images/logo/${logoFile}" alt="${comp.en}" onerror="this.style.display='none';this.parentElement.innerHTML='<span style=\"font-size:10px;color:rgba(255,255,255,.5);text-align:center;padding:4px\">${comp.en}</span>'"/>
+          <img src="./images/logo/${logoFile}" alt="${comp.en}" onerror="this.style.display='none';this.parentElement.innerHTML='<span style=\"font-size:11px;font-weight:700;color:var(--navy);text-align:center;padding:4px\">${comp.en}</span>'"/>
         </div>
         <div class="chc-info">
           <div class="chc-en">${comp.en}</div>
@@ -823,62 +936,112 @@ function renderCompany(comp, pg){
           <div class="chc-cats">${catBadges}</div>
         </div>
       </div>
-      ${comp.bio ? `<div class="company-bio-box">${comp.bio}${certBadges?`<div class="company-badges">${certBadges}</div>`:'' }</div>` : ''}
+      ${comp.bio ? `<div class="company-bio-box">${comp.bio}${certBadges?`<div class="company-badges">${certBadges}</div>`:''}</div>` : ''}
       <div class="company-products-title">
         <span>Product Lineup</span>
-        <span style="font-size:9px;color:var(--ink-soft);font-weight:400">${prods.length} products${prods.length>6?' · showing 6':''}</span>
+        <span style="font-size:9px;color:var(--ink-soft);font-weight:400">${prods.length} products</span>
       </div>
-      <div class="company-products-grid">${prodCards}</div>
+      <div class="company-prod-rows">${prodRows}</div>
     </div>
     ${footer()}
   </div>`;
 }
 
-// ── PRODUCT PAGES (3개씩) ──
+// ── PRODUCT PAGES — 카테고리 표지 + 4개씩 ──
 function renderProductPages(startPg){
   let html = '';
   let pg = startPg;
-  
-  for(let i=0; i<products.length; i+=3){
-    const batch = products.slice(i, i+3);
-    const cards = batch.map(p=>{
-      const comp = getCompany(p.companyId);
-      const detail = PRODUCT_DETAIL[p.id]||{desc:'Details available upon request.',ingredients:[]};
-      const type = p.type==="Finished Product";
-      const ingrs = detail.ingredients.slice(0,6).map(ig=>`<span class="ingr-chip">${ig}</span>`).join('');
-      
-      return `<div class="prod-card">
-        <div class="prod-img-col">
-          <img src="./images/products/${p.id}.jpg" alt="${p.nameEn}" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
-          <div class="prod-img-placeholder" style="display:none">📦<span>${p.nameEn}</span></div>
-        </div>
-        <div class="prod-info-col">
-          <div class="prod-eyebrow">
-            <span class="prod-cat-tag" style="background:${catColor(p.category)}">${catIcon(p.category)} ${p.category}</span>
-            <span class="prod-type ${type?'badge-f':'badge-r'}">${type?'Finished Goods':'Raw Material'}</span>
+  const catOrder = ["Gut Health & Microbiome","Beauty-from-Within","Metabolic & Specialized Care","Immunity & Vitality"];
+
+  catOrder.forEach(cat => {
+    const catProds = products.filter(p => p.category === cat);
+    if(!catProds.length) return;
+    const color = catColor(cat);
+    const icon = catIcon(cat);
+    const catInfo = NEW_CATS[cat] || {};
+
+    // Category cover page
+    const catDescMap = {
+      "Gut Health & Microbiome": "Probiotics, postbiotics, and microbiome-targeted ingredients for digestive health, immunity, and the gut-brain axis.",
+      "Beauty-from-Within": "Marine collagen, pomegranate extracts, PDRN, and inner beauty formulas for skin hydration, elasticity, and anti-aging.",
+      "Metabolic & Specialized Care": "Clinically proven ingredients for blood sugar management, body fat reduction, women's health, bone & joint, and weight management.",
+      "Immunity & Vitality": "Propolis, red ginseng, curcumin, vitamins, and energy formulas to support immune resilience and daily vitality."
+    };
+    const finishedCount = catProds.filter(p=>p.type==="Finished Product").length;
+    const rawCount = catProds.filter(p=>p.type!=="Finished Product").length;
+
+    html += `<div class="page cat-cover" style="background:${color}">
+      <div class="cat-cover-inner" style="color:#fff">
+        <span class="cat-cover-icon">${icon}</span>
+        <div class="cat-cover-section" style="color:rgba(255,255,255,.6)">Product Category</div>
+        <div class="cat-cover-name">${cat}</div>
+        <div class="cat-cover-sub">${catDescMap[cat]||''}</div>
+        <div class="cat-cover-stats" style="border-color:rgba(255,255,255,.15)">
+          <div class="cat-cover-stat" style="border-color:rgba(255,255,255,.1)">
+            <div class="ccs-num">${catProds.length}</div>
+            <div class="ccs-label">Products</div>
           </div>
-          <div class="prod-name">${p.nameEn}</div>
-          <div class="prod-company">🏢 ${comp.en}</div>
-          <div class="prod-divider"></div>
-          <div class="prod-desc">${detail.desc}</div>
-          ${ingrs ? `<div class="prod-ingredients">${ingrs}</div>` : ''}
+          <div class="cat-cover-stat" style="border-color:rgba(255,255,255,.1)">
+            <div class="ccs-num">${finishedCount}</div>
+            <div class="ccs-label">Finished Goods</div>
+          </div>
+          <div class="cat-cover-stat">
+            <div class="ccs-num">${rawCount}</div>
+            <div class="ccs-label">Raw Materials</div>
+          </div>
         </div>
-      </div>`;
-    }).join('');
-    
-    html += `<div class="page products-page">
-      ${header(pg)}
-      <div class="pg-body">
-        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:14px">
-          <div style="font-family:'Playfair Display',serif;font-size:18px;font-weight:700;color:var(--navy)">Product Catalog</div>
-          <div style="font-size:9px;color:var(--ink-soft)">${i+1}–${Math.min(i+3,products.length)} of ${products.length} products</div>
-        </div>
-        <div class="products-3-grid">${cards}</div>
       </div>
-      ${footer()}
+      <div class="cat-cover-tridge">
+        <span style="color:rgba(255,255,255,.25);font-size:9px">Implemented by</span>
+        <img src="${TRIDGE_SRC}" style="height:13px;filter:brightness(10);opacity:.25" alt="Tridge"/>
+      </div>
     </div>`;
     pg++;
-  }
+
+    // Product pages — 4 per page
+    for(let i=0; i<catProds.length; i+=4){
+      const batch = catProds.slice(i, i+4);
+      const cards = batch.map(p=>{
+        const comp = getCompany(p.companyId);
+        const detail = PRODUCT_DETAIL[p.id]||{desc:'Details available upon request.',ingredients:[]};
+        const type = p.type==="Finished Product";
+        const ingrs = detail.ingredients.slice(0,4).map(ig=>`<span class="ingr-chip">${ig}</span>`).join('');
+        return `<div class="prod-card">
+          <div class="prod-img-col">
+            <img src="./images/products/${p.id}.jpg" alt="${p.nameEn}" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
+            <div class="prod-img-placeholder" style="display:none">📦<span>${p.nameEn}</span></div>
+          </div>
+          <div class="prod-info-col">
+            <div class="prod-eyebrow">
+              <span class="prod-cat-tag" style="background:${catColor(p.category)}">${catIcon(p.category)} ${p.category}</span>
+              <span class="prod-type ${type?'badge-f':'badge-r'}">${type?'Finished Goods':'Raw Material'}</span>
+            </div>
+            <div class="prod-name">${p.nameEn}</div>
+            <div class="prod-company">🏢 ${comp.en}</div>
+            <div class="prod-divider"></div>
+            <div class="prod-desc">${detail.desc}</div>
+            ${ingrs ? `<div class="prod-ingredients">${ingrs}</div>` : ''}
+          </div>
+        </div>`;
+      }).join('');
+
+      html += `<div class="page products-page">
+        ${header(pg)}
+        <div class="pg-body">
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px">
+            <div style="display:flex;align-items:center;gap:8px">
+              <span style="font-size:16px">${icon}</span>
+              <div style="font-family:'Playfair Display',serif;font-size:16px;font-weight:700;color:var(--navy)">${cat}</div>
+            </div>
+            <div style="font-size:9px;color:var(--ink-soft)">${i+1}–${Math.min(i+4,catProds.length)} of ${catProds.length} products</div>
+          </div>
+          <div class="products-4-grid">${cards}</div>
+        </div>
+        ${footer()}
+      </div>`;
+      pg++;
+    }
+  });
   return html;
 }
 
@@ -886,7 +1049,7 @@ function renderProductPages(startPg){
 function renderBackCover(){
   return `<div class="page backcover">
     <div class="bc-inner">
-      <img class="bc-logo" src="${KHFF_SRC}" alt="KHFF"/>
+      <img class="bc-logo" src="${KHFF_SRC}" alt="KHFF" style="background:#fff;border-radius:8px;padding:8px 14px;height:48px;margin:0 auto 32px;display:block;"/>
       <div class="bc-title">Ready to Source from<em>Korea's Finest?</em></div>
       <div class="bc-sub">Only 5 VIP buyers will be selected to join us in Seoul on August 25, 2026. Submit your application today and let us match you with the perfect Korean health functional food suppliers.</div>
       <div class="bc-contact-box">
@@ -901,7 +1064,7 @@ function renderBackCover(){
     </div>
     <div class="bc-bottom">
       <span class="bc-copyright">© 2026 KHFF · Tridge Co., Ltd. All rights reserved. Confidential.</span>
-      <img src="${CPHI_SRC}" style="height:20px;opacity:.4" alt="CPHI"/>
+      <img src="${CPHI_SRC}" style="height:20px;background:#fff;border-radius:5px;padding:3px 6px;" alt="CPHI"/>
     </div>
   </div>`;
 }
